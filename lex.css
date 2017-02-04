@@ -1,0 +1,769 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300|Kanit:100|Titillium+Web:200');
+body {
+    font-family: "Work Sans", Helvetica, Arial, sans-serif;
+}
+.banner, .intro {
+    font-family: Kanit;
+}
+h1,h2,h3,h4,h5,h6, .navbar, footer nav {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+/* --- _SECTIONS ---------------------------- */
+
+html, body {
+    height: 100%;
+}
+body {
+    /* padding-top: 50px; */
+    padding-bottom: 20px;
+    color: #666;
+    background: White;
+    font-smooth: never;
+}
+div[class*='col-'] {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+div[class*='col-'] div[class*='col-'] {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.row {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.row .row {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+footer .row {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+/* --- --- --- */
+.breadcrumb {
+    font-weight: bold;
+    background: transparent;
+    font-size: 15px;
+    border-radius: 0;
+}
+.breadcrumb > li + li:before {
+    content: "\203A";
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 22px;
+}
+
+/*-- _LINKS ---------------------------------------------------- */
+
+a, a:hover {
+    color: 009999;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+nav a, .dropdown-menu > li > a {
+    font-weight: bold;
+}
+
+/* -- LINK COLOR -----------------------------------------------------  */
+
+/* nav color */
+footer nav a, p a, p a:focus,
+.navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
+    color: #009999;
+}
+.black-links a {
+    color: inherit;
+    border-bottom: 1px solid #999;
+}
+/* nav hover color */
+a:hover, .breadcrumb a:hover, .breadcrumb li.active,
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
+.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
+    color: #ace600;
+    color: #94c20a;
+    color: #99cc00;
+}
+p a:hover {
+    border-bottom: 1px solid #99cc00;
+}
+
+/*-- _HEADINGS and COPY -------------------------------------------- */
+
+h1, h2, h3 {
+	color: #00b32d;
+    font-weight: 200;
+    margin: 0 0 20px;
+}
+.ourteam .profile-title h2 span, .profile-list h3 span {
+    display: block;
+    font-size: 18px;
+    color: #777;
+    letter-spacing: 1px;
+    padding: 5px;
+}
+.profile-list .row .col-sm-3:nth-child(6) {
+    clear: left;
+}
+
+h3 {
+    color: #ff8000;
+    color: #009999;
+}
+h4 {
+    font-weight: bold;
+}
+p {
+    line-height: 1.5;
+}
+c {
+    white-space: nowrap;
+}
+.chevron {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+.chevron li {
+    padding-left: 20px;
+    background: url("assets/iconmonstr-arrow-29.svg") no-repeat left .4em;
+}
+.chevron p, .list-unstyled p {
+    margin-bottom: 3px;
+}
+
+.img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+footer nav ul {
+    list-style:none;
+}
+
+
+/* -- _highlight -------------------------------------- */
+.highlight {
+    background: rgba(45, 57, 57, 1);
+    color: rgba(255, 255, 255, 0.85);
+}
+.highlight h2 {
+	color: #ace600;
+    margin: 0;
+}
+.highlight h3 {
+	color: #ffd966;
+}
+
+
+/* -- _BRAND _LOGO --------------------------------------------- */
+.navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
+ .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
+    background: #94c20a;
+    color: White;
+    text-shadow: none;
+}
+.navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
+    background: #739900;
+    color: White;
+    text-shadow: none;
+}
+
+
+/*-- _BANNER ----------------------------------- */
+.banner {
+    position: relative;
+    overflow: hidden;
+    padding-top: 175px;
+    padding-bottom: 100px;
+    background: transparent;
+    background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
+    background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
+    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
+    background: rgba(50, 100, 50, 0.5); /* homeVideoA */
+    background: rgba(30, 100, 30, 0.7); /* homeVideoB */
+    background: rgba(50, 10, 0, 0.3); /* homeVideoC */
+
+	color: White;
+    text-align: center;
+}
+.banner video {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+.banner.the_firm, .banner.practice_areas, .banner.banner-ourteam, .banner.links_events, .banner.contact {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.banner h1, .banner.home {
+	color: rgba(255, 255, 255, 0.95);
+}
+.banner.the_firm {
+    background-image: url("assets/BG-the_firm.jpg");
+    background-position: center top;
+}
+.banner.practice_areas {
+    background-image: url("assets/BG-practice_areas.png");
+    background-position: center -200px;
+}
+.banner.banner-ourteam {
+    background-image: url("assets/BG-our_team.jpeg");
+    background-position: center -100px;
+}
+.banner.links_events {
+    background-image: url("assets/BG-links_events.jpeg");
+    background-position: right -50px;
+}
+.banner.contact {
+    background-image: url("assets/BG-contact.jpg");
+    background-position: right center;
+}
+
+/*
+.banner.the_firm .shade {
+    background: rgba(111, 145, 8, 0.5);
+    text-shadow: 1px 1px black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+*/
+
+/* --- _FOOTER ---------------------------------- */
+footer {
+    color: gray;
+    border-top: 1px solid rgba(198, 210, 210, 0.3);
+}
+footer .copyright {
+    background: rgba(198, 210, 210, 0.2);
+    padding-top: 1em;
+    font-size: 12px;
+    text-align: center;
+}
+footer .copyright a {
+    border: none;
+}
+
+
+/* --- DONE ------ DONE ------ DONE --------------- */
+
+
+
+
+
+
+
+
+
+
+/* MEDIUM only  */
+@media only screen and (min-width: 769px) and (max-width : 992px) {
+    .nav > li > a {
+        padding: 15px 8px;
+    }
+    .banner.home {
+        padding-top: 150px;
+    }
+}
+/* MEDIUM to LARGE */
+@media only screen and (min-width: 769px) and (max-width : 1199px) {
+    ul.third-width-md {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+
+
+
+
+
+/* ========== MEDIUM or larger = ALL Desktops ============= */
+@media only screen and (min-width: 769px) {
+
+
+    /* --- _FONT-SIZES ------------ MEDIUM or larger --- */
+    body {
+        font-size: 18px;
+    }
+    .navbar, .subnav {
+        font-size: 15px;
+    }
+    .navbar .navbar-brand {
+        font-size: 17px;
+    }
+    /* --- --- --- */
+    .banner p {
+        font-size: 40px;
+        line-height: 1;
+        /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
+    }
+    .banner h1 {
+    	font-size: 60px;
+    }
+    .intro {
+        padding: 3em 0 1em;
+    }
+    .intro p {
+        font-size: 45px;
+        line-height: 1;
+    }
+    /* --- --- --- */
+    h2 {
+    	font-size: 55px;
+    }
+    .home h2 {
+    	font-size: 38px;
+    }
+    .thefirm h2 {
+    	font-size: 45px;
+    }
+    .ourteam .profile-title h2 {
+    	font-size: 65px;
+    	margin-top: 7rem;
+    }
+    /* --- --- --- */
+    h3 {
+    	font-size: 28px;
+    }
+    .profile-list h3 {
+    	font-size: 23px;
+    }
+    /* --- --- --- */
+    h4 {
+    	font-size: 20px;
+    }
+    .address p {
+        font-size: 15px;
+    }
+    /* --- --- --- */
+    .address p, .ourteam .description  {
+        font-size: 17px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+    span.location {
+        font-size: smaller;
+        margin: -10px 0 0 10px;
+        color: #bbb;
+    }
+    ul.chevron li {
+        background-size: 12px 12px;
+    }
+
+
+
+    /* --- _CONTAINER ------------ MEDIUM or larger --- */
+    .gutter {
+        padding: 0 10px;
+    }
+    /* --- --- --- */
+    .focus {
+        background: rgba(45, 57, 57, 0.05);
+        border-radius: 6px;
+    }
+    /* --- --- --- */
+    .highlight {
+        margin-top: 3em;
+        border-radius: 6px;
+    }
+    .highlight h3, .profile-list h3 {
+        padding-top: 20px;
+    }
+    .highlight div[class*='col-'] {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    /* --- --- --- */
+    .image-streach {
+        margin: 0 -15px;
+        margin-bottom: 25px;
+        position: relative;
+        float: left;
+    }
+    .image-streach:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		box-shadow: inset 0 0 60px rgba(80,80,0,0.9);
+	}
+    .image-streach img {
+    }
+    /* --- --- --- */
+    ul.half-width {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        column-gap: 0;
+    }
+    ul.third-width {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+
+
+
+
+    /* --- _PAGES ----------------- MEDIUM or larger --- */
+
+
+    /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
+    .practiceareas img {
+        padding-top: 2em;
+        margin-top: 1em;
+        margin-bottom: -0.5em;
+    }
+    .practiceareas h2 {
+        text-align: center;
+    }
+
+
+    /* --- _OURTEAM ------------- MEDIUM or larger --- */
+    .ourteam .profile-title {
+        margin-top: 1em;
+        border-top: 2em solid white;
+        padding: 0.5em 0;
+        background: rgba(0, 0, 0, 0.03);
+        box-shadow: inset 0 -100px 150px -70px rgba(0,0,0,.06);
+    }
+    .ourteam .profile-title img {
+        box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+    }
+    .ourteam .content {
+        margin-top: 2em;
+        padding-top: 2em;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    .ourteam .content:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border-top: 0;
+    }
+    .ourteam .description p {
+    }
+
+
+    /* --- MAINNAV --- MEDIUM or larger --- */
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+        color: inherit;
+        background: inherit;
+    }
+    .navbar {
+        border: 0;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
+        background-position: center bottom;
+        transition-duration: 1s;
+    }
+    .nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
+        background: inherit;
+    }
+    .navbar.noscroll {
+        background: transparent;
+        box-shadow: none;
+    }
+    .dropdown {
+        cursor: pointer;
+    }
+    .dropdown-menu {
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
+        border: 0;
+    }
+    .dropdown-menu > li:last-child > a {
+        font-weight: 300;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        display: block;
+    }
+    .dropdown-menu {
+        text-align: right;
+    }
+    .noscroll .dropdown-menu {
+        background: transparent;
+        box-shadow: none;
+    }
+    .breadcrumb a,
+    .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
+        color: white;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+    .breadcrumb a:hover, .breadcrumb > li + li:before,
+    .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
+        color: #ace600;
+    }
+    .subnav li {
+        padding: 0;
+        line-height: 2;
+    }
+    .subnav a {
+        padding: 0 6px;
+        word-break: keep-all;
+        word-spacing: -4px;
+        white-space: nowrap;
+        border: 1px solid white;
+        border-radius: 5px;
+        line-height: 1;
+        color: rgba(255, 128, 0, 1); /* ff8000 */
+    }
+    .subnav a:hover {
+        border-color: rgba(255, 128, 0, 1);
+    }
+    /* --- --- --- */
+    .breadcrumb {
+        color: White;
+        margin-bottom: 0;
+        margin-top: -50px;
+        position: relative;
+    }
+
+    /* --- FOOTER --- MEDIUM or larger --- */
+    footer {
+        font-size: 16px;
+        margin-top: 5em;
+        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
+    }
+    footer .copyright {
+        border-radius: 6px 6px 0 0;
+    }
+    footer nav ul li {
+        padding: 2px 0;
+    }
+    footer .contact .larger span {
+        font-size: 18px;
+        border-bottom: 2px dotted gray;
+        padding-bottom: 4px;
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+/* === LARGE or larger =================================== */
+
+@media only screen and (min-width : 993px) {
+    body {
+        font-size: 20px;
+    }
+    ul.chevron li {
+        background-size: 15px 15px;
+    }
+
+    /* --- FONT-SIZE --- LARGE or larger --- */
+
+    body {
+    }
+    .navbar, .subnav, .breadcrumb {
+        font-size: 18px;
+    }
+    .navbar .navbar-brand {
+        font-size: 20px;
+    }
+
+    .banner h1 {
+    	font-size: 70px;
+    }
+    .banner.home h1 {
+    	font-size: 65px;
+    }
+
+    /* --- FOOTER --- LARGE or larger --- */
+
+    footer nav ul li {
+        display: inline;
+        margin-left: 15px;
+    }
+    footer nav ul li:first-child {
+        margin-left: 0;
+    }
+}
+
+
+
+
+
+/* === X-LARGE or larger =================================== */
+
+@media only screen and (min-width : 1201px) {
+
+    .banner h1 {
+    	font-size: 80px;
+    }
+}
+
+
+
+
+
+
+
+/* ======================================================= */
+
+
+
+
+
+
+
+
+/* === MOBILE and TABLETS ====== SMALL ================= */
+
+@media only screen and (max-width : 768px) {
+    .banner video, div[class*='col-'] img {
+        display: none;
+    }
+    div[class*='col-'] .image.mobile img {
+        display: inline;
+    }
+    .image.mobile {
+        padding-bottom: 20px;
+    }
+    .banner {
+        background: black;
+        margin: 0;
+        padding: 100px 0 1em;
+    }
+    .row {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    .highlight, .ourteam .content {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    .highlight {
+        margin-top: 1em;
+    }
+    body {
+        font-size: 18px;
+    }
+    h1 {
+    	font-size: 30px;
+    }
+    .practiceareas .text-center {
+        text-align: left;
+    }
+    .text-center {
+        text-align: left;
+    }
+    .profile-list .text-center, .profile-list {
+        text-align: center;
+    }
+    /* --- --- --- */
+    .focus {
+        background: rgba(45, 57, 57, 0.05);
+        text-align: center;
+        margin-bottom: 1em;
+    }
+}
+
+/* === col-xm-* ======================================== */
+
+@media only screen and (max-width : 550px) {
+    div[class*='col-'] {
+        width: 100%;
+    }
+}
+
+
+/* === MOBILE ONLY ============ XSMALL ================ */
+
+@media only screen and (max-width : 480px) {}
+
+
+/* === Retina ========================================= */
+
+@media only screen and (max-width : 320px) {}
+
+
+
+
+
+/*
+div[class^='col'] h3, div[class*='col'] h3 {
+    color: #F00;
+}
+
+.col-lg-3:nth-child(4n+1){
+    clear: left;
+}
+*/
+
+/* --- _COLORS
+ace600 - real lime
+94c20a - link hover | logo background
+009973 - nav color
+
+739900 - logo hover background
+
+00b386 - blue green used for default heading color
+
+1f473d - dark green highlight background
+66ffff - blue text
+ffff66 - yellow text
+ffd966 - orange text
+
+ff8000 - beutifull text color
+
+daffb3; - light green backgrounds
+d9f0c1;
+dcf8d3;
+f2ffe6
+e6ffcc
+
+
+
+eef7f4 - two nice light blue backgrounds
+daf1eb
+
+
+e5ffeb - light blue backgrounds
+ccffd8
+daf1e6
+
+
+    background: #daffb3;
+    background: #d9f0c1;
+    background: #dcf8d3;
+    background: #dcf8d3;
+
+    background: #e5ffeb;
+    background: #b8d65c;
+    background: #ccff99;
+    background: #d9f4be;
+
+        background: rgba(198, 210, 210, 0.9);
+
+
+        transform: translate(-50%, -50%);
+
+
+
+
+
+*/
+
+
+
