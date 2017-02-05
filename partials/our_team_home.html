@@ -14,10 +14,12 @@
 </ol>
 
 <section ng-controller="teamHomeCtrl">
-    <header class="container intro">
+    <header class="container headline">
         <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 text-center">
-                <p>Lorem ipsum dolor sit amet consequer ipsum dolor sit amet amet consequer ipsum.</p>
+            <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
+                <p>We provide legal services to various investment vehicles,
+                such as: stocks, bonds, mortgages, asset-backed arrangements,
+                private offerings, funds and others.</p>
             </div>
         </div>
     </header>
@@ -30,9 +32,9 @@
 		    </div>
 		    <div class="col-sm-3 text-center" ng-repeat="each in each.profiles">
 				<div class="image mobile">
-				    <a href="{{ each.profileURL }}"><img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}"></a>
+				    <a href="#/profiles/{{ each.profileURL }}"><img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}"></a>
 				</div>
-			    <h3><a href="{{ each.profileURL }}"> {{ each.profileName }} </a> <span> {{ each.profileTitle }} </span></h3>
+			    <h3><a href="#/profiles/{{ each.profileURL }}"> {{ each.profileName }} </a> <span> {{ each.profileTitle }} </span></h3>
     		</div>
 		</div>
     </div>

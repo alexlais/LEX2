@@ -1,54 +1,27 @@
 
 
-<header>
-    <div class="banner banner-ourteam">
-        <div class="shade">
-            <div class="container">
-                <h1>Our Team</h1>
-            </div>
-        </div>
-    </div>
-</header>
-
-
 <section class="ourteam">
-    <header class="container headline">
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1 text-center">
-                <p>While representing a spectrum of domestic and foreign businesses, we provide a wealth of skills enabling elaboration of comprehensive strategies.</p>
+    <header>
+        <div class="profile-title" id="profile01">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}">
+                    </div>
+                    <div class="col-sm-8">
+                        <h2>Lucius SMEJDA <span>Principal</span></h2>
+                    </div>
+                </div>
             </div>
         </div>
-        <ul class="subnav list-inline list-unstyled text-center">
-            <li><a href="#/our_team#profile01">Lucius SMEJDA</a></li>
-            <li><a href="#/our_team#profile02">Joseph B. McFARLAND</a></li>
-            <li><a href="#/our_team#profile03">Antonio R. ZAMORA</a></li>
-            <li><a href="#/our_team#profile04">Elke ROLFF</a></li>
-            <li><a href="#/our_team#profile05">Maxim ISTOMIN</a></li>
-            <li><a href="#/our_team#profile06">Susanne LEONE</a></li>
-            <li><a href="#/our_team#profile07">Evgeny V. GOLOVANOV</a></li>
-            <li><a href="#/our_team#profile08">aaa</a></li>
-            <li><a href="#/our_team#profile09">aa</a></li>
-            <li><a href="#/our_team#profile10">aa</a></li>
-        </ul>
     </header>
 
 
 
 
-    <!-- 01 =================== Lucius SMEJDA =================== -->
 
-    <div class="profile-title" id="profile01">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    <img class="img-circle" src="assets/ourteam-smejda.jpg">
-                </div>
-                <div class="col-sm-8">
-                    <h2>Lucius SMEJDA <span>Principal</span></h2>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
     <div class="container description">
         <div class="row">
 
@@ -131,6 +104,80 @@
 
         </div>
     </div>
+</section>
+
+
+
+
+        <!-- ng-repeat Directive | nestling -->
+	<div class="container profile-list" ng-repeat="each in countries">
+		<div class="row">
+		    <div class="col-sm-12 text-center">
+		    	<h2>Our Team {{ each.countryName }}</h2>
+		    </div>
+		    <div class="col-sm-3 text-center" ng-repeat="each in each.profiles">
+				<div class="image mobile">
+				    <a href="#/profiles/{{ each.profileURL }}"><img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}"></a>
+				</div>
+			    <h3><a href="#/profiles/{{ each.profileURL }}"> {{ each.profileName }} </a> <span> {{ each.profileTitle }} </span></h3>
+    		</div>
+		</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="ourteam">
+
+        <ul class="subnav list-inline list-unstyled text-center">
+            <li><a href="#/our_team#profile01">Lucius SMEJDA</a></li>
+            <li><a href="#/our_team#profile02">Joseph B. McFARLAND</a></li>
+            <li><a href="#/our_team#profile03">Antonio R. ZAMORA</a></li>
+            <li><a href="#/our_team#profile04">Elke ROLFF</a></li>
+            <li><a href="#/our_team#profile05">Maxim ISTOMIN</a></li>
+            <li><a href="#/our_team#profile06">Susanne LEONE</a></li>
+            <li><a href="#/our_team#profile07">Evgeny V. GOLOVANOV</a></li>
+            <li><a href="#/our_team#profile08">aaa</a></li>
+            <li><a href="#/our_team#profile09">aa</a></li>
+            <li><a href="#/our_team#profile10">aa</a></li>
+        </ul>
+    </header>
+
+
+
+
+    <!-- 01 =================== Lucius SMEJDA =================== -->
+
+    <div class="profile-title" id="profile01">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <img class="img-circle" src="assets/ourteam-smejda.jpg">
+                </div>
+                <div class="col-sm-8">
+                    <h2>Lucius SMEJDA <span>Principal</span></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 

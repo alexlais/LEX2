@@ -2,12 +2,13 @@
 body {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
-.banner, .intro {
+ {
     font-family: Kanit;
 }
-h1,h2,h3,h4,h5,h6, .navbar, footer nav {
+.banner, .headline, .banner h1, h2, h3, h4, .navbar, footer nav {
     font-family: 'Titillium Web', sans-serif;
 }
+
 
 
 /* --- _SECTIONS ---------------------------- */
@@ -24,10 +25,10 @@ body {
 }
 /* --- --- --- */
 .breadcrumb {
-    font-weight: bold;
     background: transparent;
-    font-size: 15px;
-    border-radius: 0;
+    border-bottom: 0 solid rgba(198, 210, 210, 0.5);
+    border-radius: 0 0 5px 5px;
+    margin-bottom: -30px;
 }
 .breadcrumb > li + li:before {
     content: "\203A";
@@ -39,18 +40,17 @@ body {
 /*-- _LINKS ---------------------------------------------------- */
 
 a, a:hover {
-    color: 009999;
+    color: #009999;
     text-decoration: none;
     transition-duration: 0.5s;
 }
 nav a, .dropdown-menu > li > a {
-    font-weight: bold;
 }
 
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-footer nav a, p a, p a:focus,
+.breadcrumb a, footer nav a, p a, p a:focus,
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
     color: #009999;
 }
@@ -58,14 +58,21 @@ footer nav a, p a, p a:focus,
     color: inherit;
     border-bottom: 1px solid #999;
 }
-/* nav hover color */
+/* nav hover color
 a:hover, .breadcrumb a:hover, .breadcrumb li.active,
+.headline .cta a, .headline .cta:after,
 .navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
 .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
     color: #ace600;
     color: #94c20a;
     color: #99cc00;
+} */
+.breadcrumb a:hover, .breadcrumb li.active,
+footer nav a:hover, p a:hover,
+.navbar .navbar-nav a:hover, .navbar .navbar-nav > li > a:hover, .navbar .dropdown-menu > li > a:hover {
+    color: #99cc00;
 }
+
 p a:hover {
     border-bottom: 1px solid #99cc00;
 }
@@ -186,7 +193,7 @@ footer nav ul {
 }
 .banner h1, .banner.home {
 	color: rgba(255, 255, 255, 0.95);
-	margin-bottom: 0.5em;
+	margin-bottom: 0.2em;
 }
 .banner.the_firm {
     background-image: url("assets/BG-the_firm.jpg");
@@ -194,7 +201,7 @@ footer nav ul {
 }
 .banner.practice_areas {
     background-image: url("assets/BG-practice_areas.png");
-    background-position: center -200px;
+    background-position: center -100px;
 }
 .banner.banner-ourteam {
     background-image: url("assets/BG-our_team.jpeg");
@@ -223,9 +230,13 @@ footer {
     color: gray;
     border-top: 1px solid rgba(198, 210, 210, 0.3);
 }
+footer .row {
+    padding-bottom: 0;
+}
 footer .copyright {
     background: rgba(198, 210, 210, 0.2);
     padding-top: 1em;
+    padding-bottom: 1em;
     font-size: 12px;
     text-align: center;
 }
@@ -247,17 +258,15 @@ footer .copyright a {
 
 /* MEDIUM only  */
 @media only screen and (min-width: 769px) and (max-width : 992px) {
-    .nav > li > a {
-        padding: 15px 8px;
-    }
-    .banner {
-        padding-top: 100px;
-    }
     .container {
         width: auto;
     }
     .highlight {
         border-radius: 0;
+    }
+    .banner h1, .banner p, .headline {
+        margin-right: 6%;
+        margin-left: 6%;
     }
 }
 /* MEDIUM to LARGE */
@@ -274,6 +283,7 @@ footer .copyright a {
 
 
 
+
 /* ========== MEDIUM or larger = ALL Desktops ============= */
 @media only screen and (min-width: 769px) {
 
@@ -282,25 +292,58 @@ footer .copyright a {
     body {
         font-size: 18px;
     }
-    .navbar, .subnav {
+    .navbar-nav > li > a {
+        padding: 10px 15px;
+    }
+    .navbar, .subnav, .breadcrumb, .breadcrumb a, .breadcrumb li:before {
         font-size: 15px;
     }
+    .navbar, .subnav, footer nav {
+        font-weight: bold;
+    }
     .navbar .navbar-brand {
-        font-size: 17px;
     }
     /* --- --- --- */
     .banner p {
         font-size: 35px;
         line-height: 1;
-        margin: 0 50px;
         /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
     }
     .banner h1 {
-    	font-size: 70px;
+    	font-size: 80px;
     }
-    .intro p {
-        font-size: 35px;
+    .headline p {
+        font-size: 50px;
         line-height: 1;
+        color: #999;
+    }
+    .headline .caption {
+        padding-top: 1.3em;
+        line-height: 1.4;
+        font-size: inherit;
+        color: #333;
+        margin: 0 20%;
+    }
+    .headline .cta {
+        display: block;
+        padding-top: 30px;
+    }
+    .headline .cta a {
+        border: 1px solid #009999;
+        padding: 3px 10px;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .headline .cta a:hover {
+        color: white;
+        background: #009999;
+        border-color: #009999;
+    }
+    .headline .cta a:after {
+        content: "\203A";
+        font-size: 25px;
+        padding-left: 8px;
+        line-height: 0;
     }
     /* --- --- --- */
     h2 {
@@ -439,20 +482,27 @@ footer .copyright a {
         column-count: 3;
     }
 
+    .border-top {
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .border-bottom {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+
     /* --- _PAGES ----------------- MEDIUM or larger --- */
 
     /* --- _HOME ------------------ MEDIUM or larger --- */
     .homeOurteam {
         border-bottom: 1px solid rgba(0,0,0,0.1);
     }
-    .intro, .homeOurteam  div[class*='col-'] {
+    .headline, .homeOurteam  div[class*='col-'] {
         padding-top: 2em;
         margin-bottom: 1em;
     }
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
-        padding-top: 1em;
-        margin-top: 1em;
+        padding-top: 2.3em;
         margin-bottom: -.7em;
     }
     .practiceareas h2 {
@@ -510,7 +560,14 @@ footer .copyright a {
     }
 
 
-    /* --- MAINNAV --- MEDIUM or larger --- */
+    /* --- _NAv MAINNAV --- MEDIUM or larger --- */
+    .nav > li > a {
+        padding: 10px;
+    }
+    .navbar-brand {
+        padding: 10px 15px;
+        height: auto;
+    }
     .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
         color: inherit;
         background: inherit;
@@ -520,7 +577,8 @@ footer .copyright a {
         background: rgba(255,255,255,0.95);
         box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
         background-position: center bottom;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
+        min-height: 40px;
     }
     .nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
         background: inherit;
@@ -550,14 +608,19 @@ footer .copyright a {
         background: transparent;
         box-shadow: none;
     }
-    .breadcrumb a,
     .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
         color: white;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
-    .breadcrumb a:hover, .breadcrumb > li + li:before,
     .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
         color: #ace600;
+    }
+    .subnav {
+        margin: 4em 10% 0;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
     .subnav li {
         padding: 0;
@@ -566,7 +629,6 @@ footer .copyright a {
     .subnav a {
         padding: 0 6px;
         word-break: keep-all;
-        word-spacing: -4px;
         white-space: nowrap;
         border: 1px solid white;
         border-radius: 5px;
@@ -576,14 +638,14 @@ footer .copyright a {
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 1);
     }
-    /* --- --- --- */
+    /* --- --- ---
     .breadcrumb {
         color: White;
         margin-bottom: 0;
         margin-top: -50px;
         position: relative;
     }
-
+    */
     /* --- FOOTER --- MEDIUM or larger --- */
     footer {
         font-size: 16px;
@@ -617,7 +679,6 @@ footer .copyright a {
                 ul.chevron li {
                     background-size: 15px 15px;
                 }
-
                 /* --- CURVY CORNERS ------------ LARGE or larger --- */
                 .image-shadow:before, .image-shadow img, .image-expand img {
                     border-radius: 3px;
@@ -626,30 +687,22 @@ footer .copyright a {
                     border-radius: 5px;
                 }
                 /* --- FONT-SIZE --- LARGE or larger --- */
-
-                body {
-                }
-                .navbar, .subnav, .breadcrumb {
+                .navbar, .subnav, .breadcrumb li,  .breadcrumb a {
                     font-size: 18px;
                 }
-                .navbar .navbar-brand {
-                    font-size: 20px;
+                .navbar-brand {
+                    margin-right: 10px;
                 }
-
                 .banner h1 {
-                	font-size: 70px;
+                	font-size: 100px;
                 }
-                .banner.home h1 {
-                	font-size: 65px;
+                .banner p {
+                    font-size: 40px;
                 }
-                .banner video {
-                    top: 70%;
+                .headline p {
+                    font-size: 45px;
                 }
-                .profile-list img {
-                }
-
                 /* --- FOOTER --- LARGE or larger --- */
-
                 footer nav ul li {
                     display: inline;
                     margin-left: 15px;
@@ -659,18 +712,8 @@ footer .copyright a {
                 }
             }
 
-
-
-
-
             /* === X-LARGE or larger =================================== */
-
-            @media only screen and (min-width : 1201px) {
-
-                .banner h1 {
-                	font-size: 80px;
-                }
-            }
+            @media only screen and (min-width : 1201px) {}
 
 
 
@@ -678,7 +721,7 @@ footer .copyright a {
 
 
 
-                /* ======================================================= */
+                                        /* ======================================================= */
 
 
 
@@ -687,74 +730,76 @@ footer .copyright a {
 
 
 
-                /* === MOBILE and TABLETS ====== SMALL ================= */
+                                        /* === MOBILE and TABLETS ====== SMALL ================= */
+                                        @media only screen and (max-width : 768px) {
 
-                @media only screen and (max-width : 768px) {
-                    .banner video, div[class*='col-'] img {
-                        display: none;
-                    }
-                    div[class*='col-'] .image.mobile img {
-                        display: inline;
-                    }
-                    .image.mobile {
-                        padding-bottom: 20px;
-                    }
-                    .banner {
-                        background: black;
-                        margin: 0;
-                        padding: 100px 0 1em;
-                    }
-                    .row {
-                        margin-bottom: 0;
-                        margin-top: 0;
-                    }
-                    .highlight, .ourteam .content {
-                        padding-top: 1em;
-                        padding-bottom: 1em;
-                    }
-                    .highlight {
-                        margin-top: 1em;
-                    }
-                    body {
-                        font-size: 18px;
-                    }
-                    h1 {
-                    	font-size: 30px;
-                    }
-                    .practiceareas .text-center {
-                        text-align: left;
-                    }
-                    .text-center {
-                        text-align: left;
-                    }
-                    .profile-list .text-center, .profile-list {
-                        text-align: center;
-                    }
-                    /* --- --- --- */
-                    .focus {
-                        background: rgba(45, 57, 57, 0.05);
-                        text-align: center;
-                        margin-bottom: 1em;
-                    }
-                }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .banner video, div[class*='col-'] img {
+                                                display: none;
+                                                margin: 0;
+                                                padding: 0;
+                                            }
+                                            div[class*='col-'] .image.mobile img {
+                                                display: inline;
+                                            }
+                                            .image.mobile {
+                                                padding-bottom: 20px;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .banner {
+                                                background: black;
+                                                margin: 0;
+                                                padding: 100px 0 1em;
+                                            }
+                                            .row {
+                                                margin-bottom: 0;
+                                                margin-top: 0;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .highlight, .ourteam .content {
+                                                padding-top: 1em;
+                                                padding-bottom: 1em;
+                                            }
+                                            .highlight {
+                                                margin-top: 1em;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            body {
+                                                font-size: 18px;
+                                            }
+                                            h1 {
+                                            	font-size: 30px;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .practiceareas .text-center {
+                                                text-align: left;
+                                            }
+                                            .text-center {
+                                                text-align: inherit;
+                                            }
+                                            .profile-list .text-center, .profile-list {
+                                                /* text-align: center; */
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .focus {
+                                                background: rgba(45, 57, 57, 0.05);
+                                                text-align: center;
+                                                margin-bottom: 1em;
+                                            }
+                                        }
 
-                /* === col-xm-* ======================================== */
+                                        /* === col-xm-* ======================================== */
+                                        @media only screen and (max-width : 550px) {
+                                            div[class*='col-'] {
+                                                width: 100%;
+                                            }
+                                        }
 
-                @media only screen and (max-width : 550px) {
-                    div[class*='col-'] {
-                        width: 100%;
-                    }
-                }
+                                        /* === MOBILE ONLY ============ XSMALL ================ */
+                                        @media only screen and (max-width : 480px) {}
 
-
-                /* === MOBILE ONLY ============ XSMALL ================ */
-
-                @media only screen and (max-width : 480px) {}
-
-
-                /* === Retina ========================================= */
-
-                @media only screen and (max-width : 320px) {}
+                                        /* === Retina ========================================= */
+                                        @media only screen and (max-width : 320px) {}
 
 
 

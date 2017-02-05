@@ -19,6 +19,7 @@ var app = angular.module('WebApp', ['ngRoute']);
         .when("/practice_areas", {templateUrl: "partials/practice_areas.html", controller: "PageCtrl"})
         .when("/our_team_home", {templateUrl: "partials/our_team_home.html", controller: "teamHomeCtrl"})
         .when("/our_team_item", {templateUrl: "partials/our_team_item.html", controller: "teamHomeCtrl"})
+        .when("/profiles/Lucius_SMEJDA", {templateUrl: "partials/profiles/Lucius_SMEJDA.html", controller: "teamHomeCtrl"})
         .when("/links_events", {templateUrl: "partials/links_events.html", controller: "PageCtrl"})
         .when("/practice_areas", {templateUrl: "partials/practice_areas.html", controller: "PageCtrl"})
         .when("/the_firm", {templateUrl: "partials/the_firm.html", controller: "PageCtrl"})
