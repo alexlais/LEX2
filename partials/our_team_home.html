@@ -8,23 +8,23 @@
     </div>
 </header>
 
-    <ol class="breadcrumb container">
-        <li><a href="#/">Home</a></li>
-        <li class="active">Our Team</li>
-    </ol>
+<ol class="breadcrumb container">
+    <li><a href="#/">Home</a></li>
+    <li class="active">Our Team</li>
+</ol>
 
-<section class="ourteam">
+<section ng-controller="teamHomeCtrl">
     <header class="container intro">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 text-center">
-                <p>We represent a spectrum of domestic and foreign businesses, and provide a wealth of skills enabling elaboration of comprehensive strategies for the legal matters arising from their corporate and commercial operations.</p>
+                <p>Lorem ipsum dolor sit amet consequer ipsum dolor sit amet amet consequer ipsum.</p>
             </div>
         </div>
     </header>
 
     <!-- ng-repeat Directive | nestling -->
-	<div class="container profile-list" ng-controller="teamHomeCtrl">
-		<div class="row" ng-repeat="each in countries">
+	<div class="container profile-list" ng-repeat="each in countries">
+		<div class="row">
 		    <div class="col-sm-12 text-center">
 		    	<h2>Our Team {{ each.countryName }}</h2>
 		    </div>

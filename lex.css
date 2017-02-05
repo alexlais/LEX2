@@ -22,26 +22,6 @@ body {
     background: White;
     font-smooth: never;
 }
-div[class*='col-'] {
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-div[class*='col-'] div[class*='col-'] {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.row {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-.row .row {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-footer .row {
-    margin-bottom: 0;
-    margin-top: 0;
-}
 /* --- --- --- */
 .breadcrumb {
     font-weight: bold;
@@ -92,22 +72,15 @@ p a:hover {
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
 
-h1, h2, h3 {
+h2, h3 {
 	color: #00b32d;
     font-weight: 200;
-    margin: 0 0 20px;
+    margin: 0 0 0.5em;
 }
-.ourteam .profile-title h2 span, .profile-list h3 span {
-    display: block;
-    font-size: 18px;
-    color: #777;
-    letter-spacing: 1px;
-    padding: 5px;
+.highlight h2 {
+	margin-bottom: .1em;
+	margin-top: -.3em;
 }
-.profile-list .row .col-sm-3:nth-child(6) {
-    clear: left;
-}
-
 h3 {
     color: #ff8000;
     color: #009999;
@@ -151,7 +124,6 @@ footer nav ul {
 }
 .highlight h2 {
 	color: #ace600;
-    margin: 0;
 }
 .highlight h3 {
 	color: #ffd966;
@@ -160,10 +132,11 @@ footer nav ul {
 
 /* -- _BRAND _LOGO --------------------------------------------- */
 .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
- .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
+.navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
     background: #94c20a;
     color: White;
     text-shadow: none;
+
 }
 .navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
     background: #739900;
@@ -191,7 +164,7 @@ footer nav ul {
 }
 .banner video {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
@@ -213,6 +186,7 @@ footer nav ul {
 }
 .banner h1, .banner.home {
 	color: rgba(255, 255, 255, 0.95);
+	margin-bottom: 0.5em;
 }
 .banner.the_firm {
     background-image: url("assets/BG-the_firm.jpg");
@@ -276,8 +250,14 @@ footer .copyright a {
     .nav > li > a {
         padding: 15px 8px;
     }
-    .banner.home {
-        padding-top: 150px;
+    .banner {
+        padding-top: 100px;
+    }
+    .container {
+        width: auto;
+    }
+    .highlight {
+        border-radius: 0;
     }
 }
 /* MEDIUM to LARGE */
@@ -310,29 +290,29 @@ footer .copyright a {
     }
     /* --- --- --- */
     .banner p {
-        font-size: 40px;
+        font-size: 35px;
         line-height: 1;
+        margin: 0 50px;
         /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
     }
     .banner h1 {
-    	font-size: 60px;
-    }
-    .intro {
-        padding: 3em 0 1em;
+    	font-size: 70px;
     }
     .intro p {
-        font-size: 45px;
+        font-size: 35px;
         line-height: 1;
     }
     /* --- --- --- */
     h2 {
+    	font-size: 45px;
+    }
+    .highlight h2 {
     	font-size: 55px;
     }
-    .home h2 {
+    .homeOurteam h2 {
     	font-size: 38px;
     }
     .thefirm h2 {
-    	font-size: 45px;
     }
     .ourteam .profile-title h2 {
     	font-size: 65px;
@@ -343,23 +323,26 @@ footer .copyright a {
     	font-size: 28px;
     }
     .profile-list h3 {
-    	font-size: 23px;
+    	font-size: 26px;
     }
     /* --- --- --- */
     h4 {
     	font-size: 20px;
     }
-    .address p {
+    .ourLocations p {
         font-size: 15px;
     }
+    .image + h2, .image + div h2, .image + h3, .image + div h3 {
+        padding-top: 0.65em;
+    }
     /* --- --- --- */
-    .address p, .ourteam .description  {
+    .ourLocations p, .ourteam .description  {
         font-size: 17px;
         margin-bottom: 8px;
         line-height: 1.2;
     }
     span.location {
-        font-size: smaller;
+        font-size: 0.9em;
         margin: -10px 0 0 10px;
         color: #bbb;
     }
@@ -367,39 +350,67 @@ footer .copyright a {
         background-size: 12px 12px;
     }
 
+    /* --- CURVY CORNERS ------------ MEDIUM or larger --- */
+    footer .copyright {
+        border-radius: 5px 5px 0 0;
+    }
+    .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
+    .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
+    .ourLocations {
+        border-radius: 0 0 3px 3px;
+    }
 
+    /* --- _STRUCTURE PADDING ------------ MEDIUM or larger --- */
+    div[class*='col-'] {
+        padding-top: 1.3em;
+    }
+    div[class*='col-'] div[class*='col-'] {
+        padding-top: 0;
+    }
+    .row {
+        margin-top: 1.3em;
+        padding-bottom: 1.3em;
+        margin-bottom: 1.3em;
+    }
+    .row .row {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    .gutter, .highlight div[class*='col-']{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 
     /* --- _CONTAINER ------------ MEDIUM or larger --- */
-    .gutter {
-        padding: 0 10px;
-    }
     /* --- --- --- */
     .focus {
         background: rgba(45, 57, 57, 0.05);
-        border-radius: 6px;
+        padding-bottom: 1.3em;
     }
     /* --- --- --- */
     .highlight {
-        margin-top: 3em;
-        border-radius: 6px;
+        margin-top: 2em;
     }
-    .highlight h3, .profile-list h3 {
-        padding-top: 20px;
+    .highlight .row {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
     }
-    .highlight div[class*='col-'] {
-        padding-left: 25px;
-        padding-right: 25px;
+    .ourLocations {
+        padding: 0 20px 10px;
+        background: rgba(255, 255, 255, .03);
+        border-top: 2px solid rgba(255, 255, 255, .15);
     }
     /* --- --- --- */
-    .image-streach {
+    .image-expand {
         margin: 0 -15px;
-        margin-bottom: 25px;
     }
+    /* --- --- --- */
     .image-shadow {
         position: relative;
-        float: left;
+        /* float: left; */
     }
-
     .image-shadow:before {
 		content: "";
 		position: absolute;
@@ -407,12 +418,14 @@ footer .copyright a {
 		bottom: 0;
 		left: 0;
 		right: 0;
-		box-shadow: inset 0 0 40px 10px rgba(170, 150, 0, 0.3);
-		border-radius: 6px;
+		box-shadow:
+		    inset 0 -50px 150px -50px rgba(120,120,0,0.4),
+		    inset 0 50px 150px -50px rgba(120,120,0,0.4);
+		box-shadow:
+		    inset 0 -80px 80px -80px rgba(255,255,0, 0.2),
+		    inset 0 80px 80px -80px rgba(255,255,0, 0.2);
+		border-radius: 4px;
 	}
-    .image-shadow img {
-		border-radius: 6px;
-    }
     /* --- --- --- */
     ul.half-width {
         -webkit-column-count: 2;
@@ -426,24 +439,45 @@ footer .copyright a {
         column-count: 3;
     }
 
-
-
-
     /* --- _PAGES ----------------- MEDIUM or larger --- */
 
-
+    /* --- _HOME ------------------ MEDIUM or larger --- */
+    .homeOurteam {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    .intro, .homeOurteam  div[class*='col-'] {
+        padding-top: 2em;
+        margin-bottom: 1em;
+    }
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
-        padding-top: 2em;
+        padding-top: 1em;
         margin-top: 1em;
-        margin-bottom: -0.5em;
+        margin-bottom: -.7em;
     }
     .practiceareas h2 {
         text-align: center;
     }
-
-
     /* --- _OURTEAM ------------- MEDIUM or larger --- */
+    .ourteam .profile-title h2 span, .profile-list h3 span {
+        display: block;
+        font-size: 18px;
+        color: #777;
+        letter-spacing: 1px;
+        padding: 5px;
+    }
+    .profile-list {
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
+    .profile-list img {
+        width: 125px;
+        height: 125px;
+    }
+    .profile-list .row .col-sm-3:nth-child(6) {
+        clear: left;
+    }
+    /* --- _OURTEAM ITEM ------------- MEDIUM or larger --- */
     .ourteam .profile-title {
         margin-top: 1em;
         border-top: 2em solid white;
@@ -465,6 +499,14 @@ footer .copyright a {
         border-top: 0;
     }
     .ourteam .description p {
+    }
+    /* --- _LINKSEVENTS ---------- MEDIUM or larger --- */
+    .linksevents header {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+    /* --- _CONTACTUS ------------ MEDIUM or larger --- */
+    .contactus header {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
 
@@ -498,7 +540,6 @@ footer .copyright a {
     .dropdown-menu > li:last-child > a {
         font-weight: 300;
     }
-
     .dropdown:hover .dropdown-menu {
         display: block;
     }
@@ -549,8 +590,9 @@ footer .copyright a {
         margin-top: 5em;
         box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
     }
-    footer .copyright {
-        border-radius: 6px 6px 0 0;
+    footer .row {
+        margin-bottom: 0;
+        margin-top: 0;
     }
     footer nav ul li {
         padding: 2px 0;
@@ -566,141 +608,153 @@ footer .copyright a {
 
 
 
-/* === LARGE or larger =================================== */
+            /* === LARGE or larger =================================== */
 
-@media only screen and (min-width : 993px) {
-    body {
-        font-size: 20px;
-    }
-    ul.chevron li {
-        background-size: 15px 15px;
-    }
+            @media only screen and (min-width : 993px) {
+                body {
+                    font-size: 20px;
+                }
+                ul.chevron li {
+                    background-size: 15px 15px;
+                }
 
-    /* --- FONT-SIZE --- LARGE or larger --- */
+                /* --- CURVY CORNERS ------------ LARGE or larger --- */
+                .image-shadow:before, .image-shadow img, .image-expand img {
+                    border-radius: 3px;
+                }
+                .focus, .highlight {
+                    border-radius: 5px;
+                }
+                /* --- FONT-SIZE --- LARGE or larger --- */
 
-    body {
-    }
-    .navbar, .subnav, .breadcrumb {
-        font-size: 18px;
-    }
-    .navbar .navbar-brand {
-        font-size: 20px;
-    }
+                body {
+                }
+                .navbar, .subnav, .breadcrumb {
+                    font-size: 18px;
+                }
+                .navbar .navbar-brand {
+                    font-size: 20px;
+                }
 
-    .banner h1 {
-    	font-size: 70px;
-    }
-    .banner.home h1 {
-    	font-size: 65px;
-    }
+                .banner h1 {
+                	font-size: 70px;
+                }
+                .banner.home h1 {
+                	font-size: 65px;
+                }
+                .banner video {
+                    top: 70%;
+                }
+                .profile-list img {
+                }
 
-    /* --- FOOTER --- LARGE or larger --- */
+                /* --- FOOTER --- LARGE or larger --- */
 
-    footer nav ul li {
-        display: inline;
-        margin-left: 15px;
-    }
-    footer nav ul li:first-child {
-        margin-left: 0;
-    }
-}
-
-
-
-
-
-/* === X-LARGE or larger =================================== */
-
-@media only screen and (min-width : 1201px) {
-
-    .banner h1 {
-    	font-size: 80px;
-    }
-}
-
+                footer nav ul li {
+                    display: inline;
+                    margin-left: 15px;
+                }
+                footer nav ul li:first-child {
+                    margin-left: 0;
+                }
+            }
 
 
 
 
 
+            /* === X-LARGE or larger =================================== */
 
-/* ======================================================= */
+            @media only screen and (min-width : 1201px) {
 
-
-
-
-
-
-
-
-/* === MOBILE and TABLETS ====== SMALL ================= */
-
-@media only screen and (max-width : 768px) {
-    .banner video, div[class*='col-'] img {
-        display: none;
-    }
-    div[class*='col-'] .image.mobile img {
-        display: inline;
-    }
-    .image.mobile {
-        padding-bottom: 20px;
-    }
-    .banner {
-        background: black;
-        margin: 0;
-        padding: 100px 0 1em;
-    }
-    .row {
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-    .highlight, .ourteam .content {
-        padding-top: 1em;
-        padding-bottom: 1em;
-    }
-    .highlight {
-        margin-top: 1em;
-    }
-    body {
-        font-size: 18px;
-    }
-    h1 {
-    	font-size: 30px;
-    }
-    .practiceareas .text-center {
-        text-align: left;
-    }
-    .text-center {
-        text-align: left;
-    }
-    .profile-list .text-center, .profile-list {
-        text-align: center;
-    }
-    /* --- --- --- */
-    .focus {
-        background: rgba(45, 57, 57, 0.05);
-        text-align: center;
-        margin-bottom: 1em;
-    }
-}
-
-/* === col-xm-* ======================================== */
-
-@media only screen and (max-width : 550px) {
-    div[class*='col-'] {
-        width: 100%;
-    }
-}
+                .banner h1 {
+                	font-size: 80px;
+                }
+            }
 
 
-/* === MOBILE ONLY ============ XSMALL ================ */
-
-@media only screen and (max-width : 480px) {}
 
 
-/* === Retina ========================================= */
 
-@media only screen and (max-width : 320px) {}
+
+
+                /* ======================================================= */
+
+
+
+
+
+
+
+
+                /* === MOBILE and TABLETS ====== SMALL ================= */
+
+                @media only screen and (max-width : 768px) {
+                    .banner video, div[class*='col-'] img {
+                        display: none;
+                    }
+                    div[class*='col-'] .image.mobile img {
+                        display: inline;
+                    }
+                    .image.mobile {
+                        padding-bottom: 20px;
+                    }
+                    .banner {
+                        background: black;
+                        margin: 0;
+                        padding: 100px 0 1em;
+                    }
+                    .row {
+                        margin-bottom: 0;
+                        margin-top: 0;
+                    }
+                    .highlight, .ourteam .content {
+                        padding-top: 1em;
+                        padding-bottom: 1em;
+                    }
+                    .highlight {
+                        margin-top: 1em;
+                    }
+                    body {
+                        font-size: 18px;
+                    }
+                    h1 {
+                    	font-size: 30px;
+                    }
+                    .practiceareas .text-center {
+                        text-align: left;
+                    }
+                    .text-center {
+                        text-align: left;
+                    }
+                    .profile-list .text-center, .profile-list {
+                        text-align: center;
+                    }
+                    /* --- --- --- */
+                    .focus {
+                        background: rgba(45, 57, 57, 0.05);
+                        text-align: center;
+                        margin-bottom: 1em;
+                    }
+                }
+
+                /* === col-xm-* ======================================== */
+
+                @media only screen and (max-width : 550px) {
+                    div[class*='col-'] {
+                        width: 100%;
+                    }
+                }
+
+
+                /* === MOBILE ONLY ============ XSMALL ================ */
+
+                @media only screen and (max-width : 480px) {}
+
+
+                /* === Retina ========================================= */
+
+                @media only screen and (max-width : 320px) {}
 
 
 
