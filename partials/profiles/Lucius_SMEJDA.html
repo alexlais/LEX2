@@ -1,6 +1,25 @@
+<section ng-controller="teamHomeCtrl">
 
 
-<section class="ourteam">
+
+    <!-- ng-repeat Directive | nestling -->
+	<div class="container profile-list border-top">
+		<div class="row">
+		    <div class="col-sm-12 text-center">
+		    	<h2>Our {{ each.countryName }} Team</h2>
+		    </div>
+		    <div class="col-sm-3 text-center">
+				<div class="image mobile">
+				    <a href="#/profiles/{{ each.profileURL }}"><img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}"></a>
+				</div>
+			    <h3><a href="#/profiles/{{ each.profileURL }}"> {{ each.profileName }} </a> <span> {{ each.profileTitle }} </span></h3>
+			    <li>{{ each.profileName }} Country Index: {{z }} Index {{ $index }}</li>
+
+    		</div>
+		</div>
+    </div>
+
+
     <header>
         <div class="profile-title" id="profile01">
             <div class="container">
@@ -9,18 +28,12 @@
                         <img class="img-circle" width="225" height="225" src="assets/profiles/{{ each.profileURL }}.{{ each.profileImgExt }}">
                     </div>
                     <div class="col-sm-8">
-                        <h2>Lucius SMEJDA <span>Principal</span></h2>
+                        <h1>Lucius SMEJDA <span>Principal</span></h1>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-
-
-
-
-
 
     <div class="container description">
         <div class="row">

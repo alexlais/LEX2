@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300|Kanit:100|Titillium+Web:200');
-body, .telephone span.hours {
+body, .telephone span, .telephone p {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
- {
+.navbar a, footer nav, .breadcrumb {
     font-family: Kanit;
 }
-.telephone, .banner, .headline, .banner h1, h2, h3, h4, .navbar, footer nav {
+.telephone, .banner h1, h2, h3, h4, .headline .caption {
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -17,29 +17,109 @@ html, body {
     height: 100%;
 }
 body {
-    /* padding-top: 50px; */
-    padding-bottom: 20px;
-    color: #555;
-    background: White;
+    /*
+    padding-top: 50px;
     font-smooth: never;
+    */
+    color: #444;
+    background: White;
 }
+
+/* --- _STRUCTURE PADDING ------------------------- */
+
+/* --- ROW padding --- */
+.row {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.row .row {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* --- COLUMN padding --- */
+.row > div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.gutter {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/* --- CANCEL padding --- */
+.row.focus {
+    margin-top: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+}
+.row > div.focus {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+footer .row, footer .row div {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.highlight .row > div {
+    margin-top: 0;
+}
+
+
+/*
+div[class*='col-'] {
+    padding-top: 1.3em;
+}
+div[class*='col-'] div[class*='col-'] {
+    padding-top: 0;
+}
+.row {
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
+}
+.row .row {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+*/
+
+
+.border-top {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    margin-top: 1em;
+    padding-top: 1em;
+}
+/* NIU */
+.border-bottom {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 1em;
+}
+
 /* --- --- --- */
 .breadcrumb {
     background: transparent;
-    font-weight: bold;
     border-bottom: 0 solid rgba(198, 210, 210, 0.5);
     border-radius: 0 0 5px 5px;
     margin-bottom: -30px;
+    color: #999;
+}
+.breadcrumb li.active {
 }
 .breadcrumb > li + li:before {
     content: "\232A";
     line-height: 0;
-    padding-right: 7px;
+    padding-right: 10px;
     padding-left: 7px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 300;
-    vertical-align: -5px;
-    color: #ddd;
+    vertical-align: -3px;
+    color: #bbb;
+
 }
 
 /*-- _LINKS ---------------------------------------------------- */
@@ -63,16 +143,8 @@ nav a, .dropdown-menu > li > a {
     color: inherit;
     border-bottom: 1px solid #999;
 }
-/* nav hover color
-a:hover, .breadcrumb a:hover, .breadcrumb li.active,
-.headline .cta a, .headline .cta:after,
-.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus, .navbar-nav .dropdown:hover > a, .navbar-nav .dropdown a:hover,
-.navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
-    color: #ace600;
-    color: #94c20a;
-    color: #99cc00;
-} */
-.breadcrumb a:hover, .breadcrumb li.active,
+/* hover */
+.breadcrumb a:hover,
 footer nav a:hover, p a:hover,
 .navbar .navbar-nav a:hover, .navbar .navbar-nav > li > a:hover, .navbar .dropdown-menu > li > a:hover {
     color: #99cc00;
@@ -88,10 +160,6 @@ h2, h3 {
 	color: #00b32d;
     font-weight: 200;
     margin: 0 0 0.5em;
-}
-.highlight h2 {
-	margin-bottom: .1em;
-	margin-top: -.3em;
 }
 h3 {
     color: #ff8000;
@@ -118,14 +186,10 @@ c {
 .chevron p, .list-unstyled p {
     margin-bottom: 3px;
 }
-
 .img-responsive {
     width: 100%;
     height: auto;
     display: block;
-}
-footer nav ul {
-    list-style:none;
 }
 
 
@@ -133,7 +197,18 @@ footer nav ul {
 .highlight {
     background: rgba(45, 57, 57, 1);
     background: rgba(0, 77, 77, 1);
-    color: rgba(255, 255, 255, 0.85);
+    background: #333;
+    padding: 1em 0;
+    margin: 3em 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+.highlight, .highlight .headline .subcaption {
+    color: rgba(255, 255, 255, 0.8);
+}
+.highlight.light {
+    border-top: 1px solid rgba(0, 153, 153, 0.3);
+    border-bottom: 1px solid rgba(0, 153, 153, 0.3);
+    background: rgba(0, 77, 77, 0.045);
 }
 .highlight h2 {
 	color: #ace600;
@@ -162,15 +237,9 @@ footer nav ul {
 .banner {
     position: relative;
     overflow: hidden;
-    padding-top: 175px;
-    padding-bottom: 100px;
-    background: transparent;
-    background: rgba(0, 200, 200, 0.5); /* homeVideo6HD */
-    background: rgba(0, 0, 100, 0.4); /* homeVideo9HD */
-    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD */
-    background: rgba(50, 100, 50, 0.5); /* homeVideoA */
-    background: rgba(30, 100, 30, 0.7); /* homeVideoB */
-    background: rgba(50, 10, 0, 0.3); /* homeVideoC */
+    padding-top: 150px;
+    padding-bottom: 80px;
+    background: rgba(0, 0, 0, 0.3); /* homeVideoC */
 
 	color: White;
     text-align: center;
@@ -233,18 +302,76 @@ footer nav ul {
 
 /* --- _FOOTER ---------------------------------- */
 footer {
-    color: gray;
-    /*
-    border-top: 1px solid rgba(198, 210, 210, 0.3);
-    */
+    background: White;
+    margin-top: 0;
+    font-size: 14px;
+    color: #777;
+    box-shadow: inset 0 0 30px -4px rgba(0,0,0,.2);
 }
-footer .row {
-    padding-bottom: 0;
+footer nav ul {
+    list-style: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 0 3em;
+    margin-top: -1em;
+    text-align: center;
 }
-footer .copyright {
-    background: rgba(198, 210, 210, 0.2);
+footer nav ul li {
+    padding: 2px 10px;
+    display: inline;
+    margin-left: 15px;
+}
+footer nav ul li:first-child {
+    margin-left: 0;
+}
+footer .row span {
+    font-weight: 600;
+    color: #888;
+}
+footer .row .title {
+    border: 1px solid #dfdfdf;
+    font-size: 19px;
+    background: #f7f7f7;
+    padding-bottom: 0.5em;
+    padding-top: 0.4em;
+    margin-bottom: 0.2em;
+    text-align: center;
+}
+footer .row .title span {
+    color: #444;
+}
+footer .row .title strong {
+    font-weight: 400;
+}
+footer .row .title p {
+    margin: 0;
+    padding: 0.3em 0;
+}
+footer .row div.contact p {
+    padding-top: 7px;
+    margin-bottom: 0
+}
+footer .row div.contact p span:first-child {
+    display: block;
+    padding-bottom: 0.3em;
+}
+footer .border {
+    border-left: 1px solid #e7e7e7;
+}
+footer .field-name {
+    min-width: 15%;
+    display: inline-block;
+}
+footer .flag-thumb {
+    float: left;
+    margin: 9px 15px 40px 0;
+}
+footer div.copyright {
+    padding: 0.8em 0 5em;
+    background: #f7f7f7;
+    border: 1px solid #dfdfdf;
     padding-top: 1em;
-    padding-bottom: 1em;
+    margin-top: 5em;
     font-size: 12px;
     text-align: center;
 }
@@ -252,8 +379,123 @@ footer .copyright a {
     border: none;
 }
 
+/* --- DONE ------ DONE ------ DONE -------- DONE ------- DONE -------- DONE -------*/
 
-/* --- DONE ------ DONE ------ DONE --------------- */
+
+
+
+
+
+
+
+                                        /* === MOBILE and TABLETS ====== SMALL ================= */
+                                        @media only screen and (max-width : 768px) {
+
+                                            /* --- MOBILE and TABLETS --- */
+                                            .banner video, section div[class*='col-'] img {
+                                                display: none;
+                                                margin: 0;
+                                                padding: 0;
+                                            }
+                                            div[class*='col-'] .image.mobile img {
+                                                display: inline;
+                                            }
+                                            .image.mobile {
+                                                padding-bottom: 20px;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .banner {
+                                                background: black;
+                                                margin: 0;
+                                                padding: 100px 0 1em;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            body {
+                                                font-size: 18px;
+                                            }
+                                            h1 {
+                                            	font-size: 30px;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+                                            .practiceareas .text-center {
+                                                text-align: left;
+                                            }
+                                            .text-center {
+                                                text-align: inherit;
+                                            }
+                                            .profile-list, .profile-list .text-center {
+                                                text-align: center;
+                                            }
+
+                                            /* --- MOBILE and TABLETS --- */
+                                            .focus {
+                                                background: rgba(45, 57, 57, 0.05);
+                                                padding-bottom: 1em;
+                                            }
+
+                                            .headline {
+                                                text-align: center;
+                                            }
+                                            .headline .caption {
+                                                font-size: 22px;
+                                            }
+                                            .headline .subcaption {
+                                                font-sie: 12px;
+                                            }
+                                            .headline .cta {
+                                                margin-top: 10px;
+                                                display: block;
+                                            }
+                                            /* --- MOBILE and TABLETS --- */
+
+                                            footer nav ul {
+                                                padding: 0;
+                                                margin: 0;
+                                            }
+                                            footer nav ul li {
+                                                padding: 15px 0px;
+                                                display: block;
+                                                margin: 0;
+                                                font-size: 20px;
+                                                border-bottom: 1px solid silver;
+                                            }
+                                            footer nav ul li:last-child {
+                                                border-bottom: 0;
+                                            }
+                                            footer .row .title {
+                                                font-size: 16px;
+                                                padding-top: 1em;
+                                                padding-bottom: 1em;
+                                                border-top: 1px solid silver;
+                                            }
+                                            footer div.copyright {
+                                                padding-bottom: 1em;
+                                                margin-top: 1em;
+
+                                            }
+
+                                        }
+
+                                        /* === col-xm-* ======================================== */
+                                        @media only screen and (max-width : 550px) {
+                                            div[class*='col-'] {
+                                                width: 100%;
+                                            }
+                                        }
+
+                                        /* === MOBILE ONLY ============ XSMALL ================ */
+                                        @media only screen and (max-width : 480px) {}
+
+                                        /* === Retina ========================================= */
+                                        @media only screen and (max-width : 320px) {}
+
+
+
+
+
+
+
+
 
 
 
@@ -269,12 +511,9 @@ footer .copyright a {
     .container {
         width: auto;
     }
-    .highlight {
-        border-radius: 0;
-    }
     .banner h1, .banner p, .headline {
-        margin-right: 6%;
-        margin-left: 6%;
+        padding-right: 6%;
+        padding-left: 6%;
     }
     .telephone span {
         margin: 0;
@@ -306,10 +545,13 @@ footer .copyright a {
     .navbar-nav > li > a {
         padding: 10px 15px;
     }
-    .navbar, .subnav, .breadcrumb, .breadcrumb a, .breadcrumb li:before {
+    .navbar, .subnav {
         font-size: 15px;
     }
-    .navbar, .subnav, footer nav {
+    .breadcrumb, .breadcrumb a, .breadcrumb li:before {
+        font-size: 17px;
+    }
+    .navbar {
         font-weight: bold;
     }
     .navbar .navbar-brand {
@@ -323,28 +565,48 @@ footer .copyright a {
     .banner h1 {
     	font-size: 80px;
     }
-    .headline p {
-        font-size: 40px;
-        line-height: 1.2;
-        color: #999;
+
+    /* HEADLINE */
+    .headline {
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+    .headline.highlight {
+        margin-top: 2em;
+        padding-top: 4em;
+        padding-bottom: 3em;
     }
     .headline .caption {
+        font-size: 40px;
+        line-height: 1.1;
+        color: #999;
+    }
+    .highlight.headline .caption {
+        color: #ddd;
+    }
+    .headline .subcaption {
         padding-top: 1.3em;
-        line-height: 1.4;
-        font-size: inherit;
-        color: #333;
-        margin: 0 20%;
+        padding-bottom: 0;
+        color: #555;
+        margin: 0 12%;
+    }
+    .highlight .headline .subcaption {
     }
     .cta {
         display: block;
         padding-top: 30px;
     }
     .cta a {
-        border: 1px solid #009999;
-        padding: 3px 20px;
-        font-size: 25px;
+        font-size: 20px;
+        border: 1px solid rgba(0, 153, 153, 0.8);
+        padding: 12px 30px;
         font-weight: 400;
-        background: rgba(0, 77, 77, 0.045);
+        background: rgba(0, 77, 77, 0.05);
+        line-height: 2;
+    }
+    .highlight .cta a {
+        border: 1px solid rgba(0, 153, 153, 1);
+        background: transparent;
     }
     .cta a:hover {
         color: white;
@@ -352,18 +614,57 @@ footer .copyright a {
         border-color: #009999;
     }
     .cta a:after {
+        font-size: 30px;
         content: "\271A";
         content: "\2794";
-        font-family: arial;
-        font-size: 33px;
         padding-left: 8px;
         font-weight: normal;
-        vertical-align: -2px;
+        vertical-align: -3px;
+        transition-duration: 0.5s;
+        color: rgba(0, 153, 153, 0.8);
+
     }
+    .cta a:hover {
+        color: White;
+    }
+    .cta :hover:after {
+        color: White;
+        margin-right: -15px;
+        padding-left: 24px;
+    }
+    /* HEADLINE backgrounds */
+    .headline.background {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    .headline.background.realestate {
+        background-image: url("/assets/headline-realestate.jpeg");
+        background-position: right bottom;
+    }
+    .headline.background.investment {
+        background-image: url("/assets/headline-investment.jpeg");
+        background-position: right bottom;
+    }
+    .headline.background .cta a {
+        border: 1px solid white;
+    }
+    .headline.background .cta a, .headline.background .cta a:after, .headline.background .caption, .headline.background .subcaption {
+        color: white;
+    }
+
+
+
+
+
     .telephone {
-        border-top: 1px solid #009999;
-        border-bottom: 1px solid #009999;
+        border: 1px solid rgba(0, 153, 153, 0.2);
         background: rgba(0, 77, 77, 0.045);
+        margin-bottom: 4em;
+        margin-top: 4em;
     }
     .telephone span.large {
         color: #009999;
@@ -386,11 +687,8 @@ footer .copyright a {
     h2 {
     	font-size: 45px;
     }
-    .highlight h2 {
+    .highlight h2, .profile-list h2 {
     	font-size: 55px;
-    }
-    .homeOurteam h2 {
-    	font-size: 38px;
     }
     .thefirm h2 {
     }
@@ -398,12 +696,9 @@ footer .copyright a {
     	font-size: 65px;
     	margin-top: 7rem;
     }
-    /* --- --- --- */
+    /* --- FONT SIZES --- ------- MEDIUM or larger --- */
     h3 {
     	font-size: 28px;
-    }
-    .profile-list h3 {
-    	font-size: 26px;
     }
     /* --- --- --- */
     h4 {
@@ -422,9 +717,9 @@ footer .copyright a {
         line-height: 1.2;
     }
     span.location {
-        font-size: 0.9em;
+        font-size: 0.85em;
         margin: -10px 0 0 10px;
-        color: #bbb;
+        color: #aaa;
     }
     ul.chevron li {
         background-size: 12px 12px;
@@ -432,7 +727,10 @@ footer .copyright a {
 
     /* --- CURVY CORNERS ------------ MEDIUM or larger --- */
     footer .copyright {
-        border-radius: 5px 5px 0 0;
+        border-radius: 3px 3px 0 0;
+    }
+    footer .title, .cta a, .telephone {
+        border-radius: 3px;
     }
     .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
     .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
@@ -440,51 +738,20 @@ footer .copyright a {
         border-radius: 0 0 3px 3px;
     }
 
-    /* --- _STRUCTURE PADDING ------------ MEDIUM or larger --- */
-    div[class*='col-'] {
-        padding-top: 1.3em;
-    }
-    div[class*='col-'] div[class*='col-'] {
-        padding-top: 0;
-    }
-    .row {
-        margin-top: 1.3em;
-        padding-bottom: 1.3em;
-        margin-bottom: 1.3em;
-    }
-    .row .row {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
-    .gutter, .highlight div[class*='col-']{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
     /* --- _CONTAINER ------------ MEDIUM or larger --- */
-    /* --- --- --- */
     .focus {
         background: rgba(45, 57, 57, 0.05);
         padding-bottom: 1.3em;
     }
     /* --- --- --- */
     .highlight {
-        margin-top: 2em;
-    }
-    .highlight .row {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 0;
     }
     .ourLocations {
-        padding: 0 20px 10px;
-        background: rgba(255, 255, 255, .03);
-        border-top: 2px solid rgba(255, 255, 255, .15);
+        padding: 0 0 10px;
     }
     /* --- --- --- */
     .image-expand {
-        margin: 0 -15px;
+        margin: 0 -14.5px;
     }
     /* --- --- --- */
     .image-shadow {
@@ -502,8 +769,8 @@ footer .copyright a {
 		    inset 0 -50px 150px -50px rgba(120,120,0,0.4),
 		    inset 0 50px 150px -50px rgba(120,120,0,0.4);
 		box-shadow:
-		    inset 0 -80px 80px -80px rgba(255,255,0, 0.2),
-		    inset 0 80px 80px -80px rgba(255,255,0, 0.2);
+		    inset 0 -40px 40px -40px rgba(255,255,0, 0.2),
+		    inset 0 40px 40px -40px rgba(255,255,0, 0.2);
 		border-radius: 4px;
 	}
     /* --- --- --- */
@@ -519,13 +786,7 @@ footer .copyright a {
         column-count: 3;
     }
 
-    .border-top {
-        border-top: 1px solid rgba(0,0,0,0.1);
-        margin-top: 1em;
-    }
-    .border-bottom {
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
+
 
 
     /* --- _PAGES ----------------- MEDIUM or larger --- */
@@ -533,10 +794,7 @@ footer .copyright a {
     /* --- _HOME ------------------ MEDIUM or larger --- */
     .homeOurteam {
         border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-    .headline, .homeOurteam  div[class*='col-'] {
-        padding-top: 2em;
-        margin-bottom: 1em;
+        padding-bottom: 2em;
     }
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
@@ -554,20 +812,18 @@ footer .copyright a {
         letter-spacing: 1px;
         padding: 5px;
     }
-    .profile-list {
-        border-top: 1px solid rgba(0,0,0,0.1);
-    }
     /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
     .profile-list img {
         width: 125px;
         height: 125px;
+    }
+    .profile-list .row .col-sm-3 {
     }
     .profile-list .row .col-sm-3:nth-child(6) {
         clear: left;
     }
     /* --- _OURTEAM ITEM ------------- MEDIUM or larger --- */
     .ourteam .profile-title {
-        margin-top: 1em;
         border-top: 2em solid white;
         padding: 0.5em 0;
         background: rgba(0, 0, 0, 0.03);
@@ -591,10 +847,12 @@ footer .copyright a {
     /* --- _LINKSEVENTS ---------- MEDIUM or larger --- */
     .linksevents header {
         border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 2em;
     }
     /* --- _CONTACTUS ------------ MEDIUM or larger --- */
     .contactus header {
         border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 2em;
     }
 
 
@@ -684,24 +942,7 @@ footer .copyright a {
         position: relative;
     }
     */
-    /* --- FOOTER --- MEDIUM or larger --- */
-    footer {
-        font-size: 16px;
-        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
-    }
-    footer .row {
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-    footer nav ul li {
-        padding: 2px 0;
-    }
-    footer .contact .larger span {
-        font-size: 18px;
-        border-bottom: 2px dotted gray;
-        padding-bottom: 4px;
-        margin-bottom: 10px;
-    }
+    /* --- _FOOTER --- MEDIUM or larger --- */
 }
 
 
@@ -717,10 +958,10 @@ footer .copyright a {
                     background-size: 15px 15px;
                 }
                 /* --- CURVY CORNERS ------------ LARGE or larger --- */
-                .image-shadow:before, .image-shadow img, .image-expand img {
+                .image-shadow:before, .image-shadow img {
                     border-radius: 3px;
                 }
-                .focus, .highlight {
+                .focus {
                     border-radius: 5px;
                 }
                 /* --- FONT-SIZE --- LARGE or larger --- */
@@ -736,19 +977,11 @@ footer .copyright a {
                 .banner p {
                     font-size: 40px;
                 }
-                .headline p {
+                .headline .caption {
                     font-size: 45px;
                 }
-                /* --- FOOTER --- LARGE or larger --- */
-                footer nav ul li {
-                    display: inline;
-                    margin-left: 15px;
-                }
-                footer nav ul li:first-child {
-                    margin-left: 0;
-                }
                 .telephone span.large {
-                    font-size: 60px;
+                    font-size: 50px;
                 }
                 .telephone span {
                     margin-bottom: 0.8em;
@@ -756,7 +989,15 @@ footer .copyright a {
                 .telephone span.hours {
                     padding-top: 0.8em;
                 }
-            }
+
+
+                .cta a {
+                    font-size: 25px;
+                }
+
+                footer {
+                    font-size: 17px;
+                }
 
             /* === X-LARGE or larger =================================== */
             @media only screen and (min-width : 1201px) {}
@@ -775,77 +1016,6 @@ footer .copyright a {
 
 
 
-
-                                        /* === MOBILE and TABLETS ====== SMALL ================= */
-                                        @media only screen and (max-width : 768px) {
-
-                                            /* --- MOBILE and TABLETS --- */
-                                            .banner video, div[class*='col-'] img {
-                                                display: none;
-                                                margin: 0;
-                                                padding: 0;
-                                            }
-                                            div[class*='col-'] .image.mobile img {
-                                                display: inline;
-                                            }
-                                            .image.mobile {
-                                                padding-bottom: 20px;
-                                            }
-                                            /* --- MOBILE and TABLETS --- */
-                                            .banner {
-                                                background: black;
-                                                margin: 0;
-                                                padding: 100px 0 1em;
-                                            }
-                                            .row {
-                                                margin-bottom: 0;
-                                                margin-top: 0;
-                                            }
-                                            /* --- MOBILE and TABLETS --- */
-                                            .highlight, .ourteam .content {
-                                                padding-top: 1em;
-                                                padding-bottom: 1em;
-                                            }
-                                            .highlight {
-                                                margin-top: 1em;
-                                            }
-                                            /* --- MOBILE and TABLETS --- */
-                                            body {
-                                                font-size: 18px;
-                                            }
-                                            h1 {
-                                            	font-size: 30px;
-                                            }
-                                            /* --- MOBILE and TABLETS --- */
-                                            .practiceareas .text-center {
-                                                text-align: left;
-                                            }
-                                            .text-center {
-                                                text-align: inherit;
-                                            }
-                                            .profile-list .text-center, .profile-list {
-                                                /* text-align: center; */
-                                            }
-                                            /* --- MOBILE and TABLETS --- */
-                                            .focus {
-                                                background: rgba(45, 57, 57, 0.05);
-                                                text-align: center;
-                                                margin-bottom: 1em;
-                                            }
-                                        }
-
-                                        /* === col-xm-* ======================================== */
-                                        @media only screen and (max-width : 550px) {
-                                            div[class*='col-'] {
-                                                width: 100%;
-                                            }
-                                        }
-
-                                        /* === MOBILE ONLY ============ XSMALL ================ */
-                                        @media only screen and (max-width : 480px) {}
-
-                                        /* === Retina ========================================= */
-                                        @media only screen and (max-width : 320px) {}
 
 
 
@@ -910,10 +1080,17 @@ daf1e6
         transform: translate(-50%, -50%);
 
 
+    background: rgba(0, 200, 200, 0.5); /* homeVideo6HD
+    background: rgba(0, 0, 100, 0.4); /* homeVideo9HD
+    background: rgba(30, 100, 0, 0.7); /* homeVideo11HD
+    background: rgba(50, 100, 50, 0.5); /* homeVideoA
+    background: rgba(30, 100, 30, 0.7); /* homeVideoB
 
 
 
 */
 
 
+nice background
 
+    background: rgba(0, 77, 77, 1);
