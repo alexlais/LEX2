@@ -41,6 +41,11 @@ body {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+/* --- CANCEL padding --- */
+.clearfix, .nogutter .row, .nogutter .row > div {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
 .gutter {
     padding-left: 10px;
     padding-right: 10px;
@@ -158,12 +163,13 @@ p a:hover {
 
 h2, h3 {
 	color: #00b32d;
+	color: #009999;
     font-weight: 200;
     margin: 0 0 0.5em;
 }
 h3 {
     color: #ff8000;
-    color: #009999;
+    color: #00b32d;
 }
 h4 {
     font-weight: bold;
@@ -173,6 +179,10 @@ p {
 }
 c {
     white-space: nowrap;
+}
+
+.telephone span {
+    display: block;
 }
 .chevron {
     list-style: none;
@@ -212,9 +222,10 @@ c {
 }
 .highlight h2 {
 	color: #ace600;
+	color: #00cccc
 }
 .highlight h3 {
-	color: #ffd966;
+	color: #d9ff66;
 }
 
 
@@ -222,6 +233,7 @@ c {
 .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
 .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
     background: #94c20a;
+    background: #009999;
     color: White;
     text-shadow: none;
 
@@ -328,8 +340,6 @@ footer .row span {
     color: #888;
 }
 footer .row .title {
-    border: 1px solid #dfdfdf;
-    font-size: 19px;
     background: #F3F3F3;
     padding-bottom: 0.5em;
     padding-top: 0.4em;
@@ -368,7 +378,6 @@ footer .flag-thumb {
 footer div.copyright {
     padding: 0.8em 0 5em;
     background: #F3F3F3;
-    border: 1px solid #dfdfdf;
     padding-top: 1em;
     margin-top: 5em;
     font-size: 12px;
@@ -377,6 +386,13 @@ footer div.copyright {
 footer .copyright a {
     border: none;
 }
+
+
+
+
+
+
+
 
 /* --- DONE ------ DONE ------ DONE -------- DONE ------- DONE -------- DONE -------*/
 
@@ -514,9 +530,6 @@ footer .copyright a {
         padding-right: 6%;
         padding-left: 6%;
     }
-    .telephone span {
-        margin: 0;
-    }
 }
 /* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
@@ -617,11 +630,6 @@ footer .copyright a {
         border: 1px solid rgba(0, 153, 153, 1);
         background: transparent;
     }
-    .cta a:hover {
-        color: white;
-        background: #009999;
-        border-color: #009999;
-    }
     .cta a:after {
         font-size: 30px;
         content: "\271A";
@@ -631,10 +639,6 @@ footer .copyright a {
         vertical-align: -3px;
         transition-duration: 0.5s;
         color: rgba(0, 153, 153, 0.8);
-
-    }
-    .cta a:hover {
-        color: White;
     }
     .cta :hover:after {
         color: White;
@@ -657,7 +661,7 @@ footer .copyright a {
     }
     .headline.background.investment {
         background-image: url("/assets/headline-investment.jpeg");
-        background-position: right bottom;
+        background-position: left bottom;
         text-align: right !important;
     }
     .headline.background .cta a {
@@ -666,31 +670,30 @@ footer .copyright a {
     .headline.background .cta a, .headline.background .cta a:after, .headline.background .caption, .headline.background .subcaption {
         color: white;
     }
-
-
-
-
-
-    .telephone {
-        color: #ddd;
-        border: 1px solid rgba(0, 153, 153, 0);
-        background: rgba(255, 255, 255, 0.05);
-        margin-bottom: 0;
-        margin-top: 0;
-        padding-top: 1em;
+    .headline .cta a:hover {
+        color: white;
+        background: #009999;
+        border-color: #009999;
     }
+
+
+    .headline .caption.blue {
+        font-size: 50px;
+        color: black;
+    }
+    .telephone {
+        padding-top: 2.5em;
+    }
+
     .telephone span.large {
         color: #009999;
-        margin: 0;
         font-size: 40px;
         word-break: keep-all;
         white-space: nowrap;
-    }
-    .telephone span {
-        display: block;
+        margin: 0;
+        font-weight: bold;
     }
     .telephone strong {
-        color: #ddd;
     }
     .telephone span.hours {
         font-size: 16px;
@@ -704,6 +707,9 @@ footer .copyright a {
     }
     .highlight h2, .profile-list h2 {
     	font-size: 55px;
+    }
+    h2.smaller {
+        font-size: 40px;
     }
     .thefirm h2 {
     }
@@ -747,9 +753,6 @@ footer .copyright a {
     footer .title, .cta a {
         border-radius: 3px;
     }
-    .telephone {
-        border-radius: 12px;
-    }
     .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
     .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
     .ourLocations {
@@ -787,7 +790,7 @@ footer .copyright a {
 		    inset 0 -50px 150px -50px rgba(120,120,0,0.7);
 		box-shadow:
 		    inset 0 -40px 40px -40px rgba(255,255,220, 0.1);
-		border-radius: 4px;
+		border-radius: 3px;
 	}
     /* --- --- --- */
     ul.half-width {
@@ -806,12 +809,7 @@ footer .copyright a {
 
 
     /* --- _PAGES ----------------- MEDIUM or larger --- */
-
     /* --- _HOME ------------------ MEDIUM or larger --- */
-    .homeOurteam {
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding-bottom: 2em;
-    }
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
         padding-top: 2.3em;
