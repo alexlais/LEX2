@@ -5,7 +5,7 @@ body, .telephone span, .telephone p {
 .navbar a, footer nav, .breadcrumb {
     font-family: Kanit;
 }
-.telephone, .banner h1, h2, h3, h4, .headline .caption {
+.telephone, .banner, .banner h1, h2, h3, h4, .headline .caption {
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -140,9 +140,13 @@ nav a, .dropdown-menu > li > a {
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-.breadcrumb a, footer nav a, p a, p a:focus,
+.breadcrumb a, footer nav a, p a, p a:focus {
+        color: #009999;
+        border-bottom: 1px solid #009999;
+        font-weight: bold;
+}
 .navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
-    color: #009999;
+    color: black;
 }
 .black-links a {
     color: inherit;
@@ -153,6 +157,8 @@ nav a, .dropdown-menu > li > a {
 footer nav a:hover, p a:hover,
 .navbar .navbar-nav a:hover, .navbar .navbar-nav > li > a:hover, .navbar .dropdown-menu > li > a:hover {
     color: #99cc00;
+    color: #009999;
+    border-bottom: none;
 }
 
 p a:hover {
@@ -239,7 +245,7 @@ c {
 
 }
 .navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
-    background: #739900;
+    background: #009999;
     color: White;
     text-shadow: none;
 }
@@ -302,7 +308,10 @@ c {
     background-image: url("assets/BG-contact.jpg");
     background-position: right center;
 }
-
+    .banner h1, .banner p, .headline {
+        padding-right: 6%;
+        padding-left: 6%;
+    }
 /*
 .banner.the_firm .shade {
     background: rgba(111, 145, 8, 0.5);
@@ -526,10 +535,6 @@ footer .copyright a {
     .container {
         width: auto;
     }
-    .banner h1, .banner p, .headline {
-        padding-right: 6%;
-        padding-left: 6%;
-    }
 }
 /* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
@@ -571,7 +576,7 @@ footer .copyright a {
     /* --- --- --- */
     .banner p {
         font-size: 35px;
-        line-height: 1;
+        line-height: 1.2;
         /* text-shadow: 1px 1px 1px rgba(0,0,0,0.5); */
     }
     .banner h1 {
@@ -660,7 +665,7 @@ footer .copyright a {
         text-align: left !important;
     }
     .headline.background.investment {
-        background-image: url("assets/headline-investment.jpeg");
+        background-image: url("assets/headline-investment.jpg");
         background-position: left bottom;
         text-align: right !important;
     }
@@ -831,6 +836,9 @@ footer .copyright a {
         width: 125px;
         height: 125px;
     }
+    .profile-list h3 {
+        font-weight: bold;
+    }
     .profile-list .row .col-sm-3 {
     }
     .profile-list .row .col-sm-3:nth-child(6) {
@@ -923,7 +931,7 @@ footer .copyright a {
         text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
     .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
-        color: #ace600;
+        color: #009999;
     }
     .subnav {
         margin: 4em 10% 0;
