@@ -306,14 +306,13 @@ footer {
     margin-top: 0;
     font-size: 14px;
     color: #777;
-    box-shadow: inset 0 0 30px -4px rgba(0,0,0,.2);
+    box-shadow: inset 0 30px 40px -30px rgba(0,0,0,.2);
 }
 footer nav ul {
     list-style: none;
     font-weight: bold;
     font-size: 18px;
-    padding: 0 0 3em;
-    margin-top: -1em;
+    padding: 1em 0;
     text-align: center;
 }
 footer nav ul li {
@@ -331,7 +330,7 @@ footer .row span {
 footer .row .title {
     border: 1px solid #dfdfdf;
     font-size: 19px;
-    background: #f7f7f7;
+    background: #F3F3F3;
     padding-bottom: 0.5em;
     padding-top: 0.4em;
     margin-bottom: 0.2em;
@@ -368,7 +367,7 @@ footer .flag-thumb {
 }
 footer div.copyright {
     padding: 0.8em 0 5em;
-    background: #f7f7f7;
+    background: #F3F3F3;
     border: 1px solid #dfdfdf;
     padding-top: 1em;
     margin-top: 5em;
@@ -584,11 +583,21 @@ footer .copyright a {
     .highlight.headline .caption {
         color: #ddd;
     }
+    .highlight.headline,  {
+        margin-bottom: 0;
+    }
+    .nomargin {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
     .headline .subcaption {
         padding-top: 1.3em;
         padding-bottom: 0;
         color: #555;
         margin: 0 12%;
+    }
+    .headline.background .subcaption {
+        margin: 0;
     }
     .highlight .headline .subcaption {
     }
@@ -644,10 +653,12 @@ footer .copyright a {
     .headline.background.realestate {
         background-image: url("/assets/headline-realestate.jpeg");
         background-position: right bottom;
+        text-align: left !important;
     }
     .headline.background.investment {
         background-image: url("/assets/headline-investment.jpeg");
         background-position: right bottom;
+        text-align: right !important;
     }
     .headline.background .cta a {
         border: 1px solid white;
@@ -661,10 +672,12 @@ footer .copyright a {
 
 
     .telephone {
-        border: 1px solid rgba(0, 153, 153, 0.2);
-        background: rgba(0, 77, 77, 0.045);
-        margin-bottom: 4em;
-        margin-top: 4em;
+        color: #ddd;
+        border: 1px solid rgba(0, 153, 153, 0);
+        background: rgba(255, 255, 255, 0.05);
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-top: 1em;
     }
     .telephone span.large {
         color: #009999;
@@ -674,8 +687,10 @@ footer .copyright a {
         white-space: nowrap;
     }
     .telephone span {
-        color: #888;
         display: block;
+    }
+    .telephone strong {
+        color: #ddd;
     }
     .telephone span.hours {
         font-size: 16px;
@@ -729,8 +744,11 @@ footer .copyright a {
     footer .copyright {
         border-radius: 3px 3px 0 0;
     }
-    footer .title, .cta a, .telephone {
+    footer .title, .cta a {
         border-radius: 3px;
+    }
+    .telephone {
+        border-radius: 12px;
     }
     .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
     .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
@@ -766,11 +784,9 @@ footer .copyright a {
 		left: 0;
 		right: 0;
 		box-shadow:
-		    inset 0 -50px 150px -50px rgba(120,120,0,0.4),
-		    inset 0 50px 150px -50px rgba(120,120,0,0.4);
+		    inset 0 -50px 150px -50px rgba(120,120,0,0.7);
 		box-shadow:
-		    inset 0 -40px 40px -40px rgba(255,255,0, 0.2),
-		    inset 0 40px 40px -40px rgba(255,255,0, 0.2);
+		    inset 0 -40px 40px -40px rgba(255,255,220, 0.1);
 		border-radius: 4px;
 	}
     /* --- --- --- */
@@ -989,10 +1005,13 @@ footer .copyright a {
                 .telephone span.hours {
                     padding-top: 0.8em;
                 }
+                .headline.background .caption {
+                    font-size: 54px;
+                }
 
 
                 .cta a {
-                    font-size: 25px;
+                    font-size: 22px;
                 }
 
                 footer {
