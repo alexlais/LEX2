@@ -655,12 +655,12 @@ footer .copyright a {
         padding-bottom: 2em;
     }
     .headline.background.realestate {
-        background-image: url("/assets/headline-realestate.jpeg");
+        background-image: url("assets/headline-realestate.jpeg");
         background-position: right bottom;
         text-align: left !important;
     }
     .headline.background.investment {
-        background-image: url("/assets/headline-investment.jpeg");
+        background-image: url("assets/headline-investment.jpeg");
         background-position: left bottom;
         text-align: right !important;
     }
