@@ -13,18 +13,21 @@ var app = angular.module('WebApp', ['ngRoute']);
         .when("/", {templateUrl: "partials/home.html", controller: "PageCtrl"})
         .when("/the_firm", {templateUrl: "partials/the_firm.html", controller: "PageCtrl"})
         .when("/practice_areas", {templateUrl: "partials/practice_areas.html", controller: "PageCtrl"})
-        .when("/our_team_home", {templateUrl: "partials/our_team_home.html", controller: "teamHomeCtrl"})
-        .when("/our_team_item", {templateUrl: "partials/our_team_item.html", controller: "teamHomeCtrl"})
-        .when("/profiles/Lucius_SMEJDA", {templateUrl: "partials/profiles/Lucius_SMEJDA.html", controller: "teamHomeCtrl"})
+        .when("/our_team", {templateUrl: "partials/our_team.html", controller: "ourteamCtrl"})
+        .when("/our_team/Lucius_Smejda", {templateUrl: "partials/our_team/Lucius_Smejda.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Joseph_McFarland", {templateUrl: "partials/our_team/Joseph_McFarland.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Antonio_Zamora", {templateUrl: "partials/our_team/Antonio_Zamora.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Elke_Rolff", {templateUrl: "partials/our_team/Elke_Rolff.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Maxim_Istomin", {templateUrl: "partials/our_team/Maxim_Istomin.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Susanne_Leone", {templateUrl: "partials/our_team/Susanne_Leone.html", controller: "teamHomeCtrl"})
+        .when("/our_team/Evgeny_Golovanov", {templateUrl: "partials/our_team/Evgeny_Golovanov.html", controller: "teamHomeCtrl"})
+     // .when("/our_team/:memberName", {templateUrl: "partials/our_team_member.html", controller: "ourteamCtrl"})
         .when("/links_events", {templateUrl: "partials/links_events.html", controller: "PageCtrl"})
         .when("/contact", {templateUrl: "partials/contact.html", controller: "PageCtrl"})
-
-        // Blog
-        .when("/blog", {templateUrl: "partials/blog.html", controller: "BlogCtrl"})
-        .when("/blog/post", {templateUrl: "partials/blog_item.html", controller: "BlogCtrl"})
+        .when("/not_found", {templateUrl: "partials/not_found.html", controller: "PageCtrl"})
 
         // else 404
-        .otherwise("/404", {templateUrl: "partials/404.html", controller: "PageCtrl"});
+        .otherwise("/not_found", {redirectTo: "partials/not_found.html", controller: "PageCtrl"});
     }]);
 
     // NEW CODE -------------
@@ -43,90 +46,95 @@ var app = angular.module('WebApp', ['ngRoute']);
 //     });
 
     // OLD CODE -----------
-	app.controller("teamHomeCtrl", function ($scope) {
-		var countries = [
+	app.controller("ourteamCtrl", ['$scope', function ($scope, $routeParams) {
+		$scope.countries = [
             {countryName: "USA",
-                profiles: [
-        	        {position:  1,
-        	        profileName: "Lucius SMEJDA",
-        	        profileTitle: "Principal",
-        	        profileURL: "Lucius_SMEJDA",
-        	        profileImgExt: "jpg"},
-        	        {position: 2,
-        	        profileName: "Joseph B. McFARLAND",
-        	        profileTitle: "Of Counsel",
-        	        profileURL: "Joseph_B._McFARLAND",
-        	        profileImgExt: "jpg"},
-            	    {position: 3,
-        	        profileName: "Antonio R. ZAMORA",
-        	        profileTitle: "Of Counsel",
-        	        profileURL: "Antonio_R._ZAMORA",
-        	        profileImgExt: "jpg"},
-            	    {position: 4,
-        	        profileName: "Elke ROLFF",
-        	        profileTitle: "Of Counsel",
-        	        profileURL: "Elke_ROLFF",
-        	        profileImgExt: "jpg"},
-            	    {position: 5,
-        	        profileName: "Maxim ISTOMIN",
-        	        profileTitle: "Of Counsel",
-        	        profileURL: "Maxim_ISTOMIN",
-        	        profileImgExt: "jpg"},
-            	    {position: 6,
-        	        profileName: "Susanne LEONE",
-        	        profileTitle: "Jurist",
-        	        profileURL: "Susanne_LEONE",
-        	        profileImgExt: "jpg"},
-            	    {position: 7,
-        	        profileName: "Evgeny V. GOLOVANOV",
-        	        profileTitle: "Jurist",
-        	        profileURL: "Evgeny_V._GOLOVANOV",
-        	        profileImgExt: "jpg"}
+                teamMember: [
+        	        {
+        	        memberName: "Lucius Smejda",
+        	        memberTitle: "Principal",
+        	        memberURL: "Lucius_Smejda",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Joseph B. McFarland",
+        	        memberTitle: "Of Counsel",
+        	        memberURL: "Joseph_McFarland",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Antonio R. Zamora",
+        	        memberTitle: "Of Counsel",
+        	        memberURL: "Antonio_Zamora",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Elke Rolff",
+        	        memberTitle: "Of Counsel",
+        	        memberURL: "Elke_Rolff",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Maxim Istomin",
+        	        memberTitle: "Of Counsel",
+        	        memberURL: "Maxim_Istomin",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Susanne Leone",
+        	        memberTitle: "Jurist",
+        	        memberURL: "Susanne_Leone",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Evgeny V. Golovanov",
+        	        memberTitle: "Jurist",
+        	        memberURL: "Evgeny_Golovanov",
+        	        imageExt: "jpg"}
 		        ]
             },
             {countryName: "International",
-                profiles: [
-        	        {position: 1,
-        	        profileName: "Jacques ETHIER",
-        	        profileTitle: "Canada",
-        	        profileURL: "Jacques_ETHIER",
-        	        profileImgExt: "jpg"},
-        	        {position: 2,
-        	        profileName: "Eric J.P. CITREY",
-        	        profileTitle: "France",
-        	        profileURL: "Eric_J.P._CITREY",
-        	        profileImgExt: "jpg"},
-            	    {position: 3,
-        	        profileName: "Oliver HANCE",
-        	        profileTitle: "Belgium & Luxemburg",
-        	        profileURL: "Oliver_HANCE",
-        	        profileImgExt: "jpg"},
-            	    {position: 4,
-        	        profileName: "Aleksandr SMIRNOV",
-        	        profileTitle: "Russia",
-        	        profileURL: "Aleksandr_SMIRNOV",
-        	        profileImgExt: "jpg"},
-            	    {position: 5,
-        	        profileName: "Vladimir A. TROITSKIY",
-        	        profileTitle: "Russia",
-        	        profileURL: "Vladimir_A._TROITSKIY",
-        	        profileImgExt: "jpg"},
-            	    {position: 6,
-        	        profileName: "Carlos AUD SOBRINHO",
-        	        profileTitle: "Brazil",
-        	        profileURL: "Carlos_AUD_SOBRINHO",
-        	        profileImgExt: "jpg"},
-            	    {position: 7,
-        	        profileName: "Eric VIGNERON",
-        	        profileTitle: "Dominican Republic",
-        	        profileURL: "Eric_VIGNERON",
-        	        profileImgExt: "png"}
+                teamMember: [
+        	        {
+        	        memberName: "Jacques Ethier",
+        	        memberTitle: "Canada",
+        	        memberURL: "Jacques_Ethier",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Eric J.P. Citrey",
+        	        memberTitle: "France",
+        	        memberURL: "Eric_Citrey",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Oliver Hance",
+        	        memberTitle: "Belgium & Luxemburg",
+        	        memberURL: "Oliver_Hance",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Aleksandr Smirnov",
+        	        memberTitle: "Russia",
+        	        memberURL: "Aleksandr_Smirnov",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Vladimir A. Troitskiy",
+        	        memberTitle: "Russia",
+        	        memberURL: "Vladimir_Troitskiy",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Carlos Aud Sobrinho",
+        	        memberTitle: "Brazil",
+        	        memberURL: "Carlos_AUD_SOBRINHO",
+        	        imageExt: "jpg"},
+        	        {
+        	        memberName: "Eric Vigneron",
+        	        memberTitle: "Dominican Republic",
+        	        memberURL: "Eric_VIGNERON",
+        	        imageExt: "png"}
 		        ]
-		    }
-		];
-		$scope.countries = countries;
-	});
+		    } //END international
+		]; // END countries
+		// $scope.countries = countries;
+        // $scope.whichMember = $routeParams.memberID;
+	} // END function
+	]);
 
+//     $rootScope.$on("$routeChangeSuccess", function (event, currentRoute, previousRoute) {
+//         window.scrollTo(0, 0);
+//     });
 
 //
 // /**

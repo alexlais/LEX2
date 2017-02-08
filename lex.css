@@ -1,15 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300|Kanit:100|Titillium+Web:200');
-body, .telephone span, .telephone p {
+body, .telephone p {
     font-family: "Work Sans", Helvetica, Arial, sans-serif;
 }
 .navbar a, footer nav, .breadcrumb {
     font-family: Kanit;
 }
-.telephone, .banner, .banner h1, h2, h3, h4, .headline .caption {
+.telephone, .banner, .banner h1, h2, h3, h4, h6, .headline .caption {
     font-family: 'Titillium Web', sans-serif;
 }
 
+/* COLORS
 
+green
+    009999   rgba(0, 153, 153, 0.5)
+yellow
+    text over dark background
+    d9ff66
+dark yellow
+    text over white
+    99cc00
+
+*/
 
 /* --- _SECTIONS ---------------------------- */
 
@@ -42,9 +53,12 @@ body {
     margin-bottom: 2rem;
 }
 /* --- CANCEL padding --- */
-.clearfix, .nogutter .row, .nogutter .row > div {
+.clearfix, .headline.nogutter, .highlight.nogutter, .container.nogutter .row, .container.nogutter .row > div {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+.clearfix, .highlight.nogutter {
+    padding-bottom: 0 !important;
 }
 .gutter {
     padding-left: 10px;
@@ -52,7 +66,6 @@ body {
 }
 /* --- CANCEL padding --- */
 .row.focus {
-    margin-top: 0;
     padding-top: 2rem;
     padding-bottom: 2rem;
     margin-bottom: 4rem;
@@ -99,10 +112,10 @@ div[class*='col-'] div[class*='col-'] {
     margin-top: 1em;
     padding-top: 1em;
 }
-/* NIU */
 .border-bottom {
     border-bottom: 1px solid rgba(0,0,0,0.1);
     margin-bottom: 1em;
+    padding-bottom: 1.3em;
 }
 
 /* --- --- --- */
@@ -116,23 +129,25 @@ div[class*='col-'] div[class*='col-'] {
 .breadcrumb li.active {
 }
 .breadcrumb > li + li:before {
-    content: "\232A";
+    /* content: "\232A"; */
+    content: "\232a";
     line-height: 0;
     padding-right: 10px;
     padding-left: 7px;
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 300;
     vertical-align: -3px;
     color: #bbb;
+    display: inline-block;
+    width: 25px;
 
 }
 
 /*-- _LINKS ---------------------------------------------------- */
 
-a, a:hover {
+a, a:hover, a:focus {
     color: #009999;
     text-decoration: none;
-    transition-duration: 0.5s;
 }
 nav a, .dropdown-menu > li > a {
 }
@@ -140,30 +155,26 @@ nav a, .dropdown-menu > li > a {
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-.breadcrumb a, footer nav a, p a, p a:focus {
-        color: #009999;
-        border-bottom: 1px solid #009999;
-        font-weight: bold;
+.breadcrumb a, .breadcrumb a:focus, footer a, footer a:focus, p a, p a:focus {
+    border-bottom: 1px solid #009999;
 }
-.navbar .navbar-nav a, .navbar .navbar-nav > li > a, .navbar .dropdown-menu > li > a {
-    color: black;
+.breadcrumb a:hover, footer a:hover, p a:hover {
+    border-bottom: 0;
 }
-.black-links a {
+.black-links a, .black-links a:focus {
     color: inherit;
     border-bottom: 1px solid #999;
 }
-/* hover */
-.breadcrumb a:hover,
-footer nav a:hover, p a:hover,
-.navbar .navbar-nav a:hover, .navbar .navbar-nav > li > a:hover, .navbar .dropdown-menu > li > a:hover {
-    color: #99cc00;
-    color: #009999;
-    border-bottom: none;
-}
 
-p a:hover {
-    border-bottom: 1px solid #99cc00;
-}
+
+
+
+
+
+
+
+
+
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
 
@@ -172,12 +183,20 @@ h2, h3 {
 	color: #009999;
     font-weight: 200;
     margin: 0 0 0.5em;
+    line-height: 1.3;
 }
 h3 {
     color: #ff8000;
     color: #00b32d;
 }
-h4 {
+.highlight h2 {
+	color: #00cccc
+}
+.highlight h3 {
+	color: #d9ff66;
+}
+h4, h6 {
+    margin-top: 0;
     font-weight: bold;
 }
 p {
@@ -185,10 +204,6 @@ p {
 }
 c {
     white-space: nowrap;
-}
-
-.telephone span {
-    display: block;
 }
 .chevron {
     list-style: none;
@@ -211,43 +226,39 @@ c {
 
 /* -- _highlight -------------------------------------- */
 .highlight {
-    background: rgba(45, 57, 57, 1);
-    background: rgba(0, 77, 77, 1);
     background: #333;
     padding: 1em 0;
-    margin: 3em 0;
-    color: rgba(255, 255, 255, 0.8);
+    margin-top: 1em;
 }
+
 .highlight, .highlight .headline .subcaption {
     color: rgba(255, 255, 255, 0.8);
 }
+/*
 .highlight.light {
     border-top: 1px solid rgba(0, 153, 153, 0.3);
     border-bottom: 1px solid rgba(0, 153, 153, 0.3);
     background: rgba(0, 77, 77, 0.045);
 }
-.highlight h2 {
-	color: #ace600;
-	color: #00cccc
-}
-.highlight h3 {
-	color: #d9ff66;
-}
+*/
+
 
 
 /* -- _BRAND _LOGO --------------------------------------------- */
 .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
-.navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
-    background: #94c20a;
+.navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
+.navbar.noscroll .navbar-right > li > a:last-child, .navbar.noscroll .navbar-right > li > a:last-child:hover, .navbar.noscroll .highlight > li > a:last-child:focus {
     background: #009999;
     color: White;
     text-shadow: none;
-
+    padding: 10px 17px;
 }
 .navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
     background: #009999;
     color: White;
     text-shadow: none;
+    padding-bottom: 6px;
+    border-bottom: 2px solid white;
 }
 
 
@@ -257,8 +268,7 @@ c {
     overflow: hidden;
     padding-top: 150px;
     padding-bottom: 80px;
-    background: rgba(0, 0, 0, 0.3); /* homeVideoC */
-
+    background: rgba(0,0,0,0.78);
 	color: White;
     text-align: center;
 }
@@ -307,11 +317,21 @@ c {
 .banner.contact {
     background-image: url("assets/BG-contact.jpg");
     background-position: right center;
+    text-align: left;
 }
-    .banner h1, .banner p, .headline {
-        padding-right: 6%;
-        padding-left: 6%;
-    }
+.banner.home {
+    background-color: transparent;
+}
+.banner.home h1, .banner p {
+    padding-right: 6%;
+    padding-left: 6%;
+}
+.banner.not_found {
+    padding: 70px 0;
+}
+.banner.not_found h1 {
+    font-size: 60px;
+}
 /*
 .banner.the_firm .shade {
     background: rgba(111, 145, 8, 0.5);
@@ -323,81 +343,56 @@ c {
 
 /* --- _FOOTER ---------------------------------- */
 footer {
-    background: White;
-    margin-top: 0;
-    font-size: 14px;
     color: #777;
-    box-shadow: inset 0 30px 40px -30px rgba(0,0,0,.2);
 }
-footer nav ul {
-    list-style: none;
-    font-weight: bold;
-    font-size: 18px;
-    padding: 1em 0;
-    text-align: center;
-}
-footer nav ul li {
-    padding: 2px 10px;
-    display: inline;
-    margin-left: 15px;
-}
-footer nav ul li:first-child {
-    margin-left: 0;
-}
-footer .row span {
-    font-weight: 600;
-    color: #888;
-}
-footer .row .title {
-    background: #F3F3F3;
-    padding-bottom: 0.5em;
-    padding-top: 0.4em;
-    margin-bottom: 0.2em;
-    text-align: center;
-}
-footer .row .title span {
-    color: #444;
-}
-footer .row .title strong {
-    font-weight: 400;
-}
-footer .row .title p {
+footer p {
     margin: 0;
-    padding: 0.3em 0;
+    line-height: 1.3;
 }
-footer .row div.contact p {
-    padding-top: 7px;
-    margin-bottom: 0
+footer .container {
+    background: #fafafa;
 }
-footer .row div.contact p span:first-child {
-    display: block;
-    padding-bottom: 0.3em;
+footer .container .col-sm-12.navigation {
+    padding-bottom: 3em;
+    background: white;
 }
-footer .border {
-    border-left: 1px solid #e7e7e7;
+    footer nav ul {
+        list-style: none;
+        font-weight: bold;
+        font-size: 18px;
+        padding: 1em 0;
+        text-align: center;
+    }
+    footer nav ul li {
+        padding: 2px 10px;
+        display: inline;
+    }
+
+footer .flag-thumb {
+    float: left;
+    margin: 0 15px 0 10px;
+    opacity: 0.6;
+}
+footer .content {
+    overflow: auto;
+}
+footer div.contact {
+    padding: 10px 0;
+}
+footer div.copyright {
+    padding: 0.5em 0 2em;
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0, 0.09);
+}
+footer div.border {
+    border-left: 1px solid rgba(0,0,0, 0.09);
 }
 footer .field-name {
+    color: #444;
     min-width: 15%;
     display: inline-block;
 }
-footer .flag-thumb {
-    float: left;
-    margin: 9px 15px 40px 0;
-}
-footer div.copyright {
-    padding: 0.8em 0 5em;
-    background: #F3F3F3;
-    padding-top: 1em;
-    margin-top: 5em;
-    font-size: 12px;
-    text-align: center;
-}
-footer .copyright a {
-    border: none;
-}
-
-
-
 
 
 
@@ -535,6 +530,13 @@ footer .copyright a {
     .container {
         width: auto;
     }
+    .profile-list h3 {
+        font-size: 24px
+    }
+    .profile-list img {
+        width: 100px;
+        height: 100px;
+    }
 }
 /* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
@@ -551,7 +553,7 @@ footer .copyright a {
 
 
 
-/* ========== MEDIUM or larger = ALL Desktops ============= */
+/* ========== _MEDIUM or larger = ALL Desktops ============= */
 @media only screen and (min-width: 769px) {
 
 
@@ -586,7 +588,7 @@ footer .copyright a {
     /* HEADLINE */
     .headline {
         margin-top: 2em;
-        margin-bottom: 2em;
+        margin-bottom: 0;
     }
     .headline.highlight {
         margin-top: 2em;
@@ -597,6 +599,7 @@ footer .copyright a {
         font-size: 40px;
         line-height: 1.1;
         color: #999;
+        margin-bottom: 1em;
     }
     .highlight.headline .caption {
         color: #ddd;
@@ -609,8 +612,7 @@ footer .copyright a {
         margin-bottom: 0 !important;
     }
     .headline .subcaption {
-        padding-top: 1.3em;
-        padding-bottom: 0;
+        padding-bottom: 1.3;
         color: #555;
         margin: 0 12%;
     }
@@ -621,7 +623,7 @@ footer .copyright a {
     }
     .cta {
         display: block;
-        padding-top: 30px;
+        padding: 1.3em 0;
     }
     .cta a {
         font-size: 20px;
@@ -641,7 +643,7 @@ footer .copyright a {
         content: "\2794";
         padding-left: 8px;
         font-weight: normal;
-        vertical-align: -3px;
+        vertical-align: -2px;
         transition-duration: 0.5s;
         color: rgba(0, 153, 153, 0.8);
     }
@@ -657,7 +659,9 @@ footer .copyright a {
         background-attachment: fixed;
         color: white;
         padding-top: 2em;
-        padding-bottom: 2em;
+        padding-bottom: 1em;
+        margin-bottom: 2em;
+        background-color: #222;
     }
     .headline.background.realestate {
         background-image: url("assets/headline-realestate.jpeg");
@@ -668,6 +672,11 @@ footer .copyright a {
         background-image: url("assets/headline-investment.jpg");
         background-position: left bottom;
         text-align: right !important;
+    }
+    .headline.background.business {
+        background-image: url("assets/headline-business.jpg");
+        background-position: left bottom;
+        box-shadow: inset 0 30px 30px -30px rgba(0,0,0,1);
     }
     .headline.background .cta a {
         border: 1px solid white;
@@ -681,31 +690,19 @@ footer .copyright a {
         border-color: #009999;
     }
 
-
-    .headline .caption.blue {
-        font-size: 50px;
-        color: black;
+    .headline.background, .highlight {
+        box-shadow: inset 0 -30px 30px -30px rgba(0,0,0,1),
+                    inset 0 30px 30px -30px rgba(0,0,0,1);
     }
-    .telephone {
-        padding-top: 2.5em;
-    }
-
-    .telephone span.large {
+    .telephone p.large {
         color: #009999;
-        font-size: 40px;
         word-break: keep-all;
         white-space: nowrap;
-        margin: 0;
-        font-weight: bold;
+        margin: 0.4em 0;
     }
-    .telephone strong {
-    }
-    .telephone span.hours {
-        font-size: 16px;
-    }
-    .telephone span strong {
-        font-weight: bold;
-    }
+
+    /* --- FONT SIZES --- ------- MEDIUM or larger --- */
+
     /* --- --- --- */
     h2 {
     	font-size: 45px;
@@ -713,16 +710,17 @@ footer .copyright a {
     .highlight h2, .profile-list h2 {
     	font-size: 55px;
     }
-    h2.smaller {
+    h2.smaller, .telephone p.large {
         font-size: 40px;
     }
-    .thefirm h2 {
+    .headline .caption.blue {
+        font-size: 50px;
+        color: black;
     }
     .ourteam .profile-title h2 {
     	font-size: 65px;
     	margin-top: 7rem;
     }
-    /* --- FONT SIZES --- ------- MEDIUM or larger --- */
     h3 {
     	font-size: 28px;
     }
@@ -730,14 +728,18 @@ footer .copyright a {
     h4 {
     	font-size: 20px;
     }
-    .ourLocations p {
-        font-size: 15px;
-    }
+
     .image + h2, .image + div h2, .image + h3, .image + div h3 {
         padding-top: 0.65em;
     }
     /* --- --- --- */
-    .ourLocations p, .ourteam .description  {
+    footer, footer h6 {
+        font-size: 14px;
+    }
+    .telephone p.hours {
+        font-size: 16px;
+    }
+    .smaller-text, .ourteam .description  {
         font-size: 17px;
         margin-bottom: 8px;
         line-height: 1.2;
@@ -752,15 +754,11 @@ footer .copyright a {
     }
 
     /* --- CURVY CORNERS ------------ MEDIUM or larger --- */
-    footer .copyright {
-        border-radius: 3px 3px 0 0;
-    }
-    footer .title, .cta a {
+    .cta a {
         border-radius: 3px;
     }
     .navbar .navbar-brand, .navbar .navbar-brand:focus, .navbar .navbar-brand:hover,
-    .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus,
-    .ourLocations {
+    .navbar .navbar-right > li > a:last-child, .navbar .navbar-right > li > a:last-child:hover, .navbar .highlight > li > a:last-child:focus {
         border-radius: 0 0 3px 3px;
     }
 
@@ -770,11 +768,8 @@ footer .copyright a {
         padding-bottom: 1.3em;
     }
     /* --- --- --- */
-    .highlight {
-    }
-    .ourLocations {
-        padding: 0 0 10px;
-    }
+
+
     /* --- --- --- */
     .image-expand {
         margin: 0 -14.5px;
@@ -814,10 +809,13 @@ footer .copyright a {
 
 
     /* --- _PAGES ----------------- MEDIUM or larger --- */
+    section.practiceareas, section.linksevents, section.contactus {
+        margin-bottom: 2em;
+    }
     /* --- _HOME ------------------ MEDIUM or larger --- */
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
-        padding-top: 2.3em;
+        padding-top: 2em;
         margin-bottom: -.7em;
     }
     .practiceareas h2 {
@@ -826,24 +824,15 @@ footer .copyright a {
     /* --- _OURTEAM ------------- MEDIUM or larger --- */
     .ourteam .profile-title h2 span, .profile-list h3 span {
         display: block;
-        font-size: 18px;
-        color: #777;
-        letter-spacing: 1px;
+        font-size: 17px;
+        color: #bbb;
         padding: 5px;
     }
     /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
-    .profile-list img {
-        width: 125px;
-        height: 125px;
-    }
-    .profile-list h3 {
-        font-weight: bold;
-    }
-    .profile-list .row .col-sm-3 {
-    }
-    .profile-list .row .col-sm-3:nth-child(6) {
+    .profile-list .row > div:nth-child(3n+5) {
         clear: left;
     }
+
     /* --- _OURTEAM ITEM ------------- MEDIUM or larger --- */
     .ourteam .profile-title {
         border-top: 2em solid white;
@@ -880,61 +869,61 @@ footer .copyright a {
 
     /* --- _NAv MAINNAV --- MEDIUM or larger --- */
     .nav > li > a {
-        padding: 10px;
+        padding: 9px 10px 9px;
     }
     .navbar-brand {
         padding: 10px 15px;
         height: auto;
     }
-    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-        color: inherit;
+    .dropdown-menu > li > a, .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+        color: #009999;
         background: inherit;
+        font-weight: bold;
     }
     .navbar {
         border: 0;
         background: rgba(255,255,255,0.95);
         box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
-        background-position: center bottom;
         transition-duration: 0.5s;
         min-height: 40px;
     }
     .nav > li > a:hover, .nav > li > a:focus, .navbar .navbar-nav > .open > a, .navbar .navbar-nav > .open > a:hover, .navbar .navbar-nav > .open > a:focus {
         background: inherit;
     }
-    .navbar.noscroll {
+    .navbar.noscroll, .noscroll .dropdown-menu {
         background: transparent;
         box-shadow: none;
     }
     .dropdown {
         cursor: pointer;
     }
-    .dropdown-menu {
-        background: rgba(255,255,255,0.95);
-        box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
-        border: 0;
-    }
-    .dropdown-menu > li:last-child > a {
-        font-weight: 300;
-    }
     .dropdown:hover .dropdown-menu {
         display: block;
     }
     .dropdown-menu {
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0px 5px 4px 1px rgba(0,0,0,.3);
+        border: 0;
         text-align: right;
     }
-    .noscroll .dropdown-menu {
-        background: transparent;
-        box-shadow: none;
+    .dropdown-menu > li:last-child > a {
+        font-weight: 300;
     }
     .noscroll a, .navbar.noscroll .navbar-nav > li > a, .noscroll .dropdown-menu > li > a {
         color: white;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 1px rgba(0,0,0,1);
     }
-    .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover {
-        color: #009999;
+    .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover, .noscroll .dropdown-menu > li:hover a {
+        color: white;
     }
+    .navbar.noscroll .navbar-nav > li > a:hover, .noscroll .dropdown:hover > a {
+        border-bottom: 2px solid white;
+        padding-bottom: 7px;
+    }
+
+    /* --- _SUBNAV ----------------- */
     .subnav {
-        margin: 4em 10% 0;
+        margin: 4em 0 0;
         padding-top: 0.5em;
         padding-bottom: 1em;
         border-top: 1px solid rgba(0,0,0,0.1);
@@ -956,21 +945,12 @@ footer .copyright a {
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 0.7);
     }
-    /* --- --- ---
-    .breadcrumb {
-        color: White;
-        margin-bottom: 0;
-        margin-top: -50px;
-        position: relative;
-    }
-    */
-    /* --- _FOOTER --- MEDIUM or larger --- */
 }
 
 
 
 
-            /* === LARGE or larger =================================== */
+            /* === _LAST LARGE or larger =================================== */
 
             @media only screen and (min-width : 993px) {
                 body {
@@ -994,7 +974,7 @@ footer .copyright a {
                     margin-right: 10px;
                 }
                 .banner h1 {
-                	font-size: 100px;
+                	font-size: 80px;
                 }
                 .banner p {
                     font-size: 40px;
@@ -1002,14 +982,11 @@ footer .copyright a {
                 .headline .caption {
                     font-size: 45px;
                 }
-                .telephone span.large {
+                .telephone p.large {
                     font-size: 50px;
                 }
-                .telephone span {
+                .telephone p {
                     margin-bottom: 0.8em;
-                }
-                .telephone span.hours {
-                    padding-top: 0.8em;
                 }
                 .headline.background .caption {
                     font-size: 54px;
@@ -1020,12 +997,27 @@ footer .copyright a {
                     font-size: 22px;
                 }
 
-                footer {
+                footer, footer h6 {
                     font-size: 17px;
                 }
-
+                 /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
+                .profile-list img {
+                    width: 125px;
+                    height: 125px;
+                }
+            }
             /* === X-LARGE or larger =================================== */
-            @media only screen and (min-width : 1201px) {}
+            @media only screen and (min-width : 1201px) {
+
+                /* cancel previous clear which was for a 3 column layout */
+                .profile-list .row > div:nth-child(3n+5) {
+                    clear: none;
+                }
+                /* add new clear for each 4 items (4n) starting from the sixth (the team heading is counted also!) */
+                .profile-list .row > div:nth-child(4n+6) {
+                    clear: left;
+                }
+            }
 
 
 
