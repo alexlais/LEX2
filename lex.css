@@ -11,12 +11,17 @@ body, .telephone p {
 
 /* COLORS
 
-green
+green (main color)
     009999   rgba(0, 153, 153, 0.5)
-yellow
+
+yellow heading (in highlight)
     text over dark background
     d9ff66
-dark yellow
+
+orange (subnav)
+    rgba(255, 128, 0, 0.9)
+
+dark yellow (bullet and subheading)
     text over white
     99cc00
 
@@ -26,6 +31,7 @@ dark yellow
 
 html, body {
     height: 100%;
+    -webkit-text-size-adjust: inherit;
 }
 body {
     /*
@@ -155,10 +161,10 @@ nav a, .dropdown-menu > li > a {
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-.breadcrumb a, .breadcrumb a:focus, footer a, footer a:focus, p a, p a:focus {
+.breadcrumb a, .breadcrumb a:focus, footer a, a.back-link:hover, footer a:focus, p a, p a:focus {
     border-bottom: 1px solid #009999;
 }
-.breadcrumb a:hover, footer a:hover, p a:hover {
+.breadcrumb a:hover, footer a:hover, p a:hover, a.back-link {
     border-bottom: 0;
 }
 .black-links a, .black-links a:focus {
@@ -178,7 +184,7 @@ nav a, .dropdown-menu > li > a {
 
 /*-- _HEADINGS and COPY -------------------------------------------- */
 
-h2, h3 {
+h1, h2, h3 {
 	color: #00b32d;
 	color: #009999;
     font-weight: 200;
@@ -194,6 +200,10 @@ h3 {
 }
 .highlight h3 {
 	color: #d9ff66;
+}
+.ourteam h3 {
+    color: #99cc00;
+    color: rgba(255, 128, 0, 0.9);
 }
 h4, h6 {
     margin-top: 0;
@@ -350,7 +360,7 @@ footer p {
     line-height: 1.3;
 }
 footer .container {
-    background: #fafafa;
+    background: #f4f4f4;
 }
 footer .container .col-sm-12.navigation {
     padding-bottom: 3em;
@@ -360,18 +370,14 @@ footer .container .col-sm-12.navigation {
         list-style: none;
         font-weight: bold;
         font-size: 18px;
-        padding: 1em 0;
-        text-align: center;
     }
     footer nav ul li {
-        padding: 2px 10px;
-        display: inline;
     }
 
 footer .flag-thumb {
     float: left;
     margin: 0 15px 0 10px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 footer .content {
     overflow: auto;
@@ -383,10 +389,10 @@ footer div.copyright {
     padding: 0.5em 0 2em;
     font-size: 12px;
     text-align: center;
-    border-top: 1px solid rgba(0,0,0, 0.09);
+    border-top: 2px solid White;
 }
 footer div.border {
-    border-left: 1px solid rgba(0,0,0, 0.09);
+    border-left: 2px solid White;
 }
 footer .field-name {
     color: #444;
@@ -468,8 +474,6 @@ footer .field-name {
                                             /* --- MOBILE and TABLETS --- */
 
                                             footer nav ul {
-                                                padding: 0;
-                                                margin: 0;
                                             }
                                             footer nav ul li {
                                                 padding: 15px 0px;
@@ -537,6 +541,9 @@ footer .field-name {
         width: 100px;
         height: 100px;
     }
+    .profile-header h1 {
+    	font-size: 50px;
+    }
 }
 /* MEDIUM to LARGE */
 @media only screen and (min-width: 769px) and (max-width : 1199px) {
@@ -600,8 +607,10 @@ footer .field-name {
         line-height: 1.1;
         color: #999;
         margin-bottom: 1em;
+        margin-left: 10%;
+        margin-right: 10%;
     }
-    .highlight.headline .caption {
+    .highlight.headline .caption, .highlight.headline .subcaption {
         color: #ddd;
     }
     .highlight.headline,  {
@@ -675,8 +684,8 @@ footer .field-name {
     }
     .headline.background.business {
         background-image: url("assets/headline-business.jpg");
-        background-position: left bottom;
-        box-shadow: inset 0 30px 30px -30px rgba(0,0,0,1);
+        background-position: left center;
+        box-shadow: none;
     }
     .headline.background .cta a {
         border: 1px solid white;
@@ -714,12 +723,7 @@ footer .field-name {
         font-size: 40px;
     }
     .headline .caption.blue {
-        font-size: 50px;
-        color: black;
-    }
-    .ourteam .profile-title h2 {
-    	font-size: 65px;
-    	margin-top: 7rem;
+        color: #009999;
     }
     h3 {
     	font-size: 28px;
@@ -741,7 +745,7 @@ footer .field-name {
     }
     .smaller-text, .ourteam .description  {
         font-size: 17px;
-        margin-bottom: 8px;
+        margin-bottom: 7px;
         line-height: 1.2;
     }
     span.location {
@@ -822,26 +826,74 @@ footer .field-name {
         text-align: center;
     }
     /* --- _OURTEAM ------------- MEDIUM or larger --- */
-    .ourteam .profile-title h2 span, .profile-list h3 span {
+    .profile-list h3 span {
         display: block;
-        font-size: 17px;
-        color: #bbb;
-        padding: 5px;
+        font-size: 0.7em;
+        color: #999;
+        padding:3px;
     }
-    /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
+    /* --- _profile-list ------------- MEDIUM or larger --- */
     .profile-list .row > div:nth-child(3n+5) {
         clear: left;
     }
 
-    /* --- _OURTEAM ITEM ------------- MEDIUM or larger --- */
-    .ourteam .profile-title {
-        border-top: 2em solid white;
-        padding: 0.5em 0;
-        background: rgba(0, 0, 0, 0.03);
-        box-shadow: inset 0 -100px 150px -70px rgba(0,0,0,.06);
+    .profile-list h3 a {
+        color: #666;
+        border-top: 1px solid #aaa;
+        padding-bottom: 0;
+        line-height: 1;
     }
-    .ourteam .profile-title img {
-        box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+    .profile-list h3 a:hover {
+        color: #009999;
+        border-top: 1px solid #009999;
+    }
+    /* --- _profile-header ------------- MEDIUM or larger --- */
+    .profile-header {
+        padding-top: 60px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #ccc;
+        background: rgba(0, 55, 70, 0.6);
+        background: #f3f3f3;
+        box-shadow: inset 0 -100px 100px 10px rgba(255,255,255,0.3),
+                     0 10px 25px -10px rgba(0,0,0,0.4);
+
+
+    }
+    .profile-header a.back-link {
+    	margin: 0;
+    	font-size: 0.8em;
+    	opacity: 0.6;
+    }
+    .profile-header a.back-link:before {
+    	content: "\21E4";
+    	content: "\00AB";
+    	font-size: 25px;
+    	vertical-align: -2px;
+    	padding: 0 6px 0 0;
+    	opacity: 0.7;
+    }
+    .profile-header a.back-link:hover {
+    	opacity: 1;
+    	border: 0;
+    }
+    .profile-header h1 {
+    	padding-top: 35px;
+        font-weight: 200;
+    	line-height: 1;
+    	margin-left: 15px;
+    	margin: 5px 0;
+        border-top: 1px solid #ddd;
+    }
+    .profile-header h1 span {
+        display: block;
+        font-size: 27px;
+        color: #bbb;
+        padding-top: 10px;
+        text-transform: uppercase;
+        text-shadow: 2px 2px white;
+    }
+    .profile-header img {
+        box-shadow: 0 0 68px 26px rgba(0,0,0,.051);
     }
     .ourteam .content {
         margin-top: 2em;
@@ -945,7 +997,49 @@ footer .field-name {
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 0.7);
     }
+
+
+    .rotation {
+        height:250px;
+        width:250px;
+        position:relative;
+        overflow:hidden;
+        border:2px solid black;
+        }
+        .rotation .cell {
+        font-size:150px;
+        text-align:center;
+        line-height:250px;
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        border-bottom:2px solid black;
+        }
+        .swap-animation.ng-enter, .swap-animation.ng-leave {
+        transition:0.5s linear all;
+        }
+        .swap-animation.ng-enter {
+        top:-250px;
+        }
+        .swap-animation.ng-enter-active {
+        top:0px;
+        }
+        .swap-animation.ng-leave {
+        top:0px;
+        }
+        .swap-animation.ng-leave-active {
+        top:250px;
+        }
+        .red { background:red; }
+        .green { background:green; }
+        .blue2 { background:blue; }
+        .yellow { background:yellow; }
+        .orange { background:orange; }
+
+
 }
+
 
 
 
@@ -990,9 +1084,12 @@ footer .field-name {
                 }
                 .headline.background .caption {
                     font-size: 54px;
+                    margin-left: 0;
+                    margin-right: 0;
                 }
-
-
+                .profile-header h1 {
+                	font-size: 60px;
+                }
                 .cta a {
                     font-size: 22px;
                 }
@@ -1104,10 +1201,19 @@ daf1e6
     background: rgba(30, 100, 30, 0.7); /* homeVideoB
 
 
-
-*/
-
+        background:
+            linear-gradient(to bottom, white 0%,green 100%),
+            linear-gradient(to bottom, yellow 0%,red 100%),
+            linear-gradient(to bottom, orange 0%,blue 100%)
+            ;
+        background-blend-mode:overlay;
+         normal|multiply|screen|overlay|darken|lighten|color-dodge|saturation|color|luminosity
 
 nice background
 
     background: rgba(0, 77, 77, 1);
+
+
+*/
+
+
