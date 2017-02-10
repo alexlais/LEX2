@@ -1,3 +1,7 @@
+<nav class="navbar navbar-fixed-top noscrollActive noscroll" role="navigation">
+    <ng-include src="'includes/header.html'"></ng-include>
+</nav>
+
 <header>
     <div class="banner banner-ourteam">
         <div class="shade">
@@ -13,19 +17,64 @@
     <li class="active">Our Team</li>
 </ol>
 
-<section ng-controller="ourteamCtrl">
+<section ng-controller="profileInfoCtrl">
     <!-- ng-repeat Directive | nestling -->
-	<div class="container profile-list border-bottom" ng-repeat="each in countries">
+	<div class="container profile-list">
 		<div class="row">
 		    <div class="col-sm-12 text-center">
-		    	<h2>Our {{ each.countryName }} Team</h2>
+		    	<h2>Our USA Team</h2>
 		    </div>
-		    <div class="col-sm-4 col-lg-3 text-center" ng-repeat="each in each.teamMember">
-				<div class="image mobile">
-				    <a href="#/our_team/{{ each.memberURL }}"><img class="img-circle" width="225" height="225" ng-src="assets/our_team/{{ each.memberURL }}.{{ each.imageExt }}"></a>
-				</div>
-			    <h3><a href="#/our_team/{{ each.memberURL }}">{{ each.memberName }}</a> <span>{{ each.memberTitle }}</span></h3>
-    		</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile1" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile2" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile3" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile4" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile5" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile6" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile7" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile8" type="snippet"></my-customer>
+		</div>
+    </div>
+	<div class="container profile-list">
+		<div class="row">
+		    <div class="col-sm-12 text-center border-top">
+		    	<h2>Our International Team</h2>
+		    </div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile9" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile10" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile11" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile12" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile13" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile14" type="snippet"></my-customer>
+			</div>
+		    <div class="col-sm-4 col-lg-3 text-center">
+			    <my-customer info="profile15" type="snippet"></my-customer>
+			</div>
 		</div>
     </div>
 </section>

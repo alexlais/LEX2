@@ -129,7 +129,6 @@ div[class*='col-'] div[class*='col-'] {
     background: transparent;
     border-bottom: 0 solid rgba(198, 210, 210, 0.5);
     border-radius: 0 0 5px 5px;
-    margin-bottom: -30px;
     color: #999;
 }
 .breadcrumb li.active {
@@ -161,10 +160,10 @@ nav a, .dropdown-menu > li > a {
 /* -- LINK COLOR -----------------------------------------------------  */
 
 /* nav color */
-.breadcrumb a, .breadcrumb a:focus, footer a, a.back-link:hover, footer a:focus, p a, p a:focus {
+.breadcrumb a, .breadcrumb a:focus, a.back-link:hover, footer a:focus, p a, p a:focus {
     border-bottom: 1px solid #009999;
 }
-.breadcrumb a:hover, footer a:hover, p a:hover, a.back-link {
+.breadcrumb a:hover, p a:hover, a.back-link {
     border-bottom: 0;
 }
 .black-links a, .black-links a:focus {
@@ -191,9 +190,23 @@ h1, h2, h3 {
     margin: 0 0 0.5em;
     line-height: 1.3;
 }
+
+.profile-header h1 span {
+    display: block;
+    color: #bbb;
+    padding-top: 10px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px white;
+}
 h3 {
     color: #ff8000;
     color: #00b32d;
+}
+.profile-list h3 span {
+    display: block;
+    font-size: 0.7em;
+    color: #999;
+    padding:3px;
 }
 .highlight h2 {
 	color: #00cccc
@@ -232,7 +245,24 @@ c {
     height: auto;
     display: block;
 }
-
+/* back-link */
+.profile-header a.back-link {
+	margin: 0;
+	font-size: 0.8em;
+	opacity: 0.6;
+}
+.profile-header a.back-link:before {
+	content: "\21E4";
+	content: "\00AB";
+	font-size: 25px;
+	vertical-align: -2px;
+	padding: 0 6px 0 0;
+	opacity: 0.7;
+}
+.profile-header a.back-link:hover {
+	opacity: 1;
+	border: 0;
+}
 
 /* -- _highlight -------------------------------------- */
 .highlight {
@@ -261,7 +291,6 @@ c {
     background: #009999;
     color: White;
     text-shadow: none;
-    padding: 10px 17px;
 }
 .navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
     background: #009999;
@@ -277,6 +306,7 @@ c {
     position: relative;
     overflow: hidden;
     padding-top: 150px;
+    padding-bottom: 50px;
     padding-bottom: 80px;
     background: rgba(0,0,0,0.78);
 	color: White;
@@ -351,54 +381,6 @@ c {
 }
 */
 
-/* --- _FOOTER ---------------------------------- */
-footer {
-    color: #777;
-}
-footer p {
-    margin: 0;
-    line-height: 1.3;
-}
-footer .container {
-    background: #f4f4f4;
-}
-footer .container .col-sm-12.navigation {
-    padding-bottom: 3em;
-    background: white;
-}
-    footer nav ul {
-        list-style: none;
-        font-weight: bold;
-        font-size: 18px;
-    }
-    footer nav ul li {
-    }
-
-footer .flag-thumb {
-    float: left;
-    margin: 0 15px 0 10px;
-    opacity: 0.8;
-}
-footer .content {
-    overflow: auto;
-}
-footer div.contact {
-    padding: 10px 0;
-}
-footer div.copyright {
-    padding: 0.5em 0 2em;
-    font-size: 12px;
-    text-align: center;
-    border-top: 2px solid White;
-}
-footer div.border {
-    border-left: 2px solid White;
-}
-footer .field-name {
-    color: #444;
-    min-width: 15%;
-    display: inline-block;
-}
 
 
 
@@ -411,23 +393,142 @@ footer .field-name {
 
 
 
+                                        /* === col-xm-* ======================================== */
+                                        @media only screen and (max-width : 500px) {
+                                            div.col-xs-6 {
+                                                width: auto;
+                                                float: none;
+                                            }
+                                        }
+
+                                        /* === MOBILE ONLY ============ XSMALL ================ */
+                                        @media only screen and (max-width : 480px) {}
+
+                                        /* === Retina ========================================= */
+                                        @media only screen and (max-width : 320px) {}
 
 
-                                        /* === MOBILE and TABLETS ====== SMALL ================= */
+
+                                        /* === _MOBILE and TABLETS ====== SMALL ================= */
                                         @media only screen and (max-width : 768px) {
 
                                             /* --- MOBILE and TABLETS --- */
-                                            .banner video, section div[class*='col-'] img {
+                                            .banner video, section div[class*='col-'] img, .headline.nogutter {
                                                 display: none;
                                                 margin: 0;
                                                 padding: 0;
                                             }
-                                            div[class*='col-'] .image.mobile img {
+                                            .banner.home {
+                                                background: #333;
+                                            }
+                                            .row, .row.focus {
+                                                margin-top: 0;
+                                                marign-bottom: 0;
+                                            }
+                                            div[class*='col-'] .image.mobile img, section div[class*='col-'] img.mobile {
                                                 display: inline;
                                             }
                                             .image.mobile {
                                                 padding-bottom: 20px;
+                                                border: 0;
                                             }
+                                            .profile-list a.image.mobile + h3 {
+                                                padding-top: 10px;
+                                            }
+                                            .profile-list a.image.mobile img {
+                                                width: 100px;
+                                                height: 100px;
+                                            }
+                                            .ourteam .content {
+                                                margin-top: 2em;
+                                                padding-top: 2em;
+                                                border-top: 1px solid rgba(0, 0, 0, 0.15);
+                                            }
+                                            .profile-header {
+                                                text-align: center;
+                                                padding-top: 50px;
+                                            }
+                                            .navbar {
+                                                background: white;
+                                                border: none;
+                                            }
+                                            .navbar .navbar-toggle {
+                                                border: 2px solid #009999;
+                                                padding: 7px 5px;
+                                                margin-top: 10px;
+                                            }
+                                            .navbar .icon-bar {
+                                                background: #009999;
+                                            }
+                                            /* --- SUBNAV and FOOTER NAV ----------------- */
+                                            footer {
+                                                font-size: 16px;
+                                                border-top: 2px solid #009999;
+                                            }
+                                            footer nav {
+                                            }
+                                            footer .contact {
+                                                padding-top: 15px !important;
+                                            }
+                                            footer .contact p {
+                                                margin-bottom: 0;
+                                            }
+                                            footer .contact img {
+                                                float: left;
+                                                margin-right: 15px;
+                                            }
+                                            footer .contact .content {
+                                                overflow: auto;
+                                            }
+                                            footer .copyright {
+                                                text-align: center;
+                                                font-size: 14px;
+                                                border-top: 1px solid #ddd;
+                                                margin-top: 20px !important;
+                                                background: #eee;
+                                            }
+                                            footer nav {
+                                                border-bottom: 1px solid #777;
+                                                font-weight: bold;
+                                            }
+                                            footer nav ul, footer nav li, footer nav div {
+                                                border: 0 !important;
+                                                padding-left: 0 !important;
+                                                padding-right: 0 !important;
+                                                margin-left: 0 !important;
+                                                margin-right: 0 !important;
+                                                list-style: none;
+                                            }
+                                            .subnav li, footer nav li {
+                                                display: block;
+                                            }
+                                            footer nav ul li ul li a, footer nav ul li ul li a:hover {
+                                                padding-left: 30px !important;
+                                                font-weight: normal;
+                                                border: none;
+                                                border-top: 1px solid #ddd;
+                                            }
+                                            footer nav a, footer nav a:hover {
+                                                display: block;
+                                                padding: 15px;
+                                                border: none;
+                                                border-top: 1px solid #999;
+                                                color: #444;
+                                            }
+                                            nav > ul:first-child > li:first-child > a {
+                                                border-top: 0;
+                                            }
+                                            .subnav a, .subnav a:hover {
+                                                display: block;
+                                                padding: 15px;
+                                                border-top: 1px solid #ff8000;
+                                                color: #ff8000; /* ff8000 */
+                                            }
+                                            .subnav li:first-child a, .subnav li:first-child a:hover {
+                                                border-top: 0;
+                                            }
+
+
                                             /* --- MOBILE and TABLETS --- */
                                             .banner {
                                                 background: black;
@@ -437,10 +538,15 @@ footer .field-name {
                                             /* --- MOBILE and TABLETS --- */
                                             body {
                                                 font-size: 18px;
+                                                padding-top: 50px;
                                             }
                                             h1 {
                                             	font-size: 30px;
                                             }
+                                            .profile-header h1 span {
+                                                font-size: 18px;
+                                            }
+
                                             /* --- MOBILE and TABLETS --- */
                                             .practiceareas .text-center {
                                                 text-align: left;
@@ -471,46 +577,7 @@ footer .field-name {
                                                 margin-top: 10px;
                                                 display: block;
                                             }
-                                            /* --- MOBILE and TABLETS --- */
-
-                                            footer nav ul {
-                                            }
-                                            footer nav ul li {
-                                                padding: 15px 0px;
-                                                display: block;
-                                                margin: 0;
-                                                font-size: 20px;
-                                                border-bottom: 1px solid silver;
-                                            }
-                                            footer nav ul li:last-child {
-                                                border-bottom: 0;
-                                            }
-                                            footer .row .title {
-                                                font-size: 16px;
-                                                padding-top: 1em;
-                                                padding-bottom: 1em;
-                                                border-top: 1px solid silver;
-                                            }
-                                            footer div.copyright {
-                                                padding-bottom: 1em;
-                                                margin-top: 1em;
-
-                                            }
-
                                         }
-
-                                        /* === col-xm-* ======================================== */
-                                        @media only screen and (max-width : 550px) {
-                                            div[class*='col-'] {
-                                                width: 100%;
-                                            }
-                                        }
-
-                                        /* === MOBILE ONLY ============ XSMALL ================ */
-                                        @media only screen and (max-width : 480px) {}
-
-                                        /* === Retina ========================================= */
-                                        @media only screen and (max-width : 320px) {}
 
 
 
@@ -826,12 +893,7 @@ footer .field-name {
         text-align: center;
     }
     /* --- _OURTEAM ------------- MEDIUM or larger --- */
-    .profile-list h3 span {
-        display: block;
-        font-size: 0.7em;
-        color: #999;
-        padding:3px;
-    }
+
     /* --- _profile-list ------------- MEDIUM or larger --- */
     .profile-list .row > div:nth-child(3n+5) {
         clear: left;
@@ -849,56 +911,40 @@ footer .field-name {
     }
     /* --- _profile-header ------------- MEDIUM or larger --- */
     .profile-header {
-        padding-top: 60px;
+        padding-top: 80px;
+        padding-bottom: 20px;
         margin-bottom: 40px;
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #ddd;
         background: rgba(0, 55, 70, 0.6);
-        background: #f3f3f3;
-        box-shadow: inset 0 -100px 100px 10px rgba(255,255,255,0.3),
-                     0 10px 25px -10px rgba(0,0,0,0.4);
+        background: #eee;
+        box-shadow: inset 0 -100px 100px 10px rgba(255,255,255,0.5),
+                    0 10px 25px -10px rgba(0,0,0,0.2);
 
 
-    }
-    .profile-header a.back-link {
-    	margin: 0;
-    	font-size: 0.8em;
-    	opacity: 0.6;
     }
     .profile-header a.back-link:before {
-    	content: "\21E4";
-    	content: "\00AB";
-    	font-size: 25px;
-    	vertical-align: -2px;
-    	padding: 0 6px 0 0;
-    	opacity: 0.7;
-    }
-    .profile-header a.back-link:hover {
-    	opacity: 1;
-    	border: 0;
-    }
+	    margin-left: 15px;
+	}
     .profile-header h1 {
     	padding-top: 35px;
         font-weight: 200;
     	line-height: 1;
-    	margin-left: 15px;
-    	margin: 5px 0;
-        border-top: 1px solid #ddd;
+    	margin: 5px 0 0 15px;
+        border-top: 1px solid #ccc;
     }
     .profile-header h1 span {
-        display: block;
         font-size: 27px;
-        color: #bbb;
-        padding-top: 10px;
-        text-transform: uppercase;
-        text-shadow: 2px 2px white;
     }
     .profile-header img {
-        box-shadow: 0 0 68px 26px rgba(0,0,0,.051);
+        border: 1px solid white;
     }
     .ourteam .content {
         margin-top: 2em;
         padding-top: 2em;
         border-top: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    .ourteam .col-sm-8 .content {
+        margin-left: 15px;
     }
     .ourteam .content:first-child {
         margin-top: 0;
@@ -923,7 +969,7 @@ footer .field-name {
     .nav > li > a {
         padding: 9px 10px 9px;
     }
-    .navbar-brand {
+    .navbar-brand, .navbar .navbar-right > li > a:last-child {
         padding: 10px 15px;
         height: auto;
     }
@@ -996,6 +1042,73 @@ footer .field-name {
     }
     .subnav a:hover {
         border-color: rgba(255, 128, 0, 0.7);
+    }
+
+    /* --- _FOOTER ---------------------------------- */
+    footer {
+        color: #777;
+        background: #f4f4f4;
+    }
+    footer p {
+        margin: 0;
+        line-height: 1.3;
+    }
+    footer .container {
+    }
+    footer .container .col-sm-12.navigation {
+        padding-top: 1em;
+        background: #fafafa;
+        border-bottom: 1px solid #eee;
+    }
+
+        footer nav ul {
+            list-style: none;
+            font-size: 16px;
+            padding-bottom: 20px;
+            padding-left: 0;
+        }
+        footer nav p {
+            font-size: 15px;
+            padding-bottom: 3px;
+        }
+        footer nav ul a, footer nav ul a:focus {
+            display: block;
+            border: none;
+            color: #444;
+        }
+        footer nav > ul > li > a, footer nav > ul > li > a:focus {
+            font-weight: bold;
+            margin-bottom: 4px;
+            border-bottom: 1px solid #ddd;
+        }
+        footer nav .row > ul > li > a, footer nav > ul > li > ul li a {
+            font-size: 16px;
+        }
+
+    footer .flag-thumb {
+        float: left;
+        margin: 0 15px 0 15px;
+        opacity: 0.8;
+    }
+    footer .content {
+        overflow: auto;
+    }
+    footer div.contact {
+        padding: 20px 0;
+    }
+    footer div.copyright {
+        padding: 1em 0 3em;
+        font-size: 12px;
+        text-align: center;
+        border-top: 1px solid #dadada;
+    }
+    footer div.border {
+        border-left: 1px solid #ddd;
+    }
+    footer .field-name {
+        color: #444;
+        min-width: 15%;
+        display: inline-block;
     }
 
 
@@ -1083,7 +1196,6 @@ footer .field-name {
                     margin-bottom: 0.8em;
                 }
                 .headline.background .caption {
-                    font-size: 54px;
                     margin-left: 0;
                     margin-right: 0;
                 }
@@ -1213,6 +1325,12 @@ nice background
 
     background: rgba(0, 77, 77, 1);
 
+#example1 {
+    background-image: url(img_flwr.gif), url(paper.gif);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat, repeat;
+    padding: 15px;
+}
 
 */
 

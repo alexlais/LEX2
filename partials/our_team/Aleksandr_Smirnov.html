@@ -1,14 +1,17 @@
-<section ng-controller="teamHomeCtrl"><div class="ourteam">
+<nav class="navbar navbar-fixed-top" role="navigation">
+    <ng-include src="'includes/header.html'"></ng-include>
+</nav>
+<section ng-controller="profileInfoCtrl"><div class="ourteam">
 
     <div class="profile-header">
         <div class="container">
             <div class="row">
                 <div class="col-sm-4 text-center">
-                    <img class="img-circle" src="assets/our_team/Aleksandr_Smirnov.jpg">
+                    <my-customer info="profile12" type="image"></my-customer>
                 </div>
                 <div class="col-sm-8">
                     <a class="back-link" href="#/our_team/">back to team</a>
-                    <h1>Aleksandr Smirnov <span>Russia</span></h1>
+                    <h1><my-customer info="profile12" type="nametitle"></my-customer></h1>
                 </div>
             </div>
         </div>
