@@ -261,6 +261,11 @@ var app =
 	        memberURL: "Eric_Vigneron",
 	        imageURL: "Eric_Vigneron.png"
 	        };
+        $scope.scrollTo = function (scrollLocation) {
+            $location.hash(scrollLocation);
+            $anchorScroll.yOffset = 20;
+            $anchorScroll();
+            }
     }])
     .directive('myCustomer', function() {
         return {
@@ -274,14 +279,7 @@ var app =
         };
     });
 
-    app.controller("demoController", function
-        ($scope, $location, $anchorScroll) {
-        $scope.scrollTo = function (scrollLocation) {
-         $location.hash(scrollLocation);
-         $anchorScroll.yOffset = 20;
-         $anchorScroll();
-        }
-    });
+
 
 //   app.controller('AppCtrl', ['$scope', '$interval', function($scope, $interval) {
 //     $scope.number = 0;

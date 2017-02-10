@@ -18,7 +18,7 @@
     <li class="active">Practice Areas</li>
 </ol>
 
-<section class="practiceareas">
+<section ng-controller="profileInfoCtrl" class="practiceareas">
     <header class="container headline">
         <div class="row">
             <div class="col-sm-12 col-md-10 col-md-offset-1 text-center">
@@ -41,7 +41,7 @@
 
 
     <img id="practice01" class="img-responsive" src="assets/practiceareas-international.png">
-    <div class="container first" id="practice01">
+    <div class="container first">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 text-center">
                 <h2>International Private Practice</h2>
@@ -61,7 +61,8 @@
              </div>
         </div>
     </div>
-    <a href="#/practice_areas#pageTop">Back to top</a>
+    <p ng-click="scrollTo('pageTop')">Back to top</p>
+
     <img id="practice03" class="img-responsive" src="assets/practiceareas-planning.png">
     <div class="container">
         <div class="row">
