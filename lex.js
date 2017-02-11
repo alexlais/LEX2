@@ -46,6 +46,10 @@ var app =
         templateUrl: "partials/our_team.html",
         controller: "profileInfoCtrl"
         })
+        .when("/contact", {
+        templateUrl: "partials/contact.html",
+        controller: "profileInfoCtrl"
+        })
         .when("/test", {
         templateUrl: "partials/test.html",
         controller: "profileInfoCtrl"
@@ -130,15 +134,9 @@ var app =
         controller: "profileInfoCtrl"
         })
      // .when("/our_team/:memberName", {templateUrl: "partials/our_team_member.html", controller: "ourteamCtrl"})
-        .when("/contact", {
-        templateUrl: "partials/contact.html",
-        controller: "profileInfoCtrl",
-        navStyle : 'noscrollActive noscroll'
-        })
         .when("/links_events", {
         templateUrl: "partials/links_events.html",
         controller: "profileInfoCtrl",
-        navStyle : 'noscrollActive noscroll'
         })
         .when("/not_found", {
         templateUrl: "partials/not_found.html",
@@ -169,95 +167,115 @@ var app =
 		});
 	}]);
 
+    app.controller('contactCtrl', ['$scope', function($scope) {
+    }]);
+
+
     app.controller('profileInfoCtrl', ['$scope', function($scope, $location, $anchorScroll) {
+        // TEAM USA
         $scope.profile1 = {
             memberName: "Lucius Smejda",
 	        memberTitle: "Principal",
+	        memberLocation: "USA, Canada",
 	        memberURL: "Lucius_Smejda",
 	        imageURL: "Lucius_Smejda.jpg"
 	        };
         $scope.profile2 = {
 	        memberName: "Joseph B. McFarland",
 	        memberTitle: "Of Counsel",
+	        memberLocation: "USA",
 	        memberURL: "Joseph_McFarland",
 	        imageURL: "Joseph_McFarland.jpg"
 	        };
         $scope.profile3 = {
 	        memberName: "Antonio R. Zamora",
 	        memberTitle: "Of Counsel",
+	        memberLocation: "USA",
 	        memberURL: "Antonio_Zamora",
 	        imageURL: "Antonio_Zamora.jpg"
 	        };
         $scope.profile4 = {
 	        memberName: "Elke Rolff",
 	        memberTitle: "Of Counsel",
+	        memberLocation: "USA, Switzerland",
 	        memberURL: "Elke_Rolff",
 	        imageURL: "Elke_Rolff.jpg"
 	        };
         $scope.profile5 = {
 	        memberName: "Maxim Istomin",
 	        memberTitle: "Of Counsel",
+	        memberLocation: "Russia, USA",
 	        memberURL: "Maxim_Istomin",
 	        imageURL: "Maxim_Istomin.jpg"
 	        };
         $scope.profile6 = {
 	        memberName: "Susanne Leone",
 	        memberTitle: "Jurist",
+	        memberLocation: "Germany",
 	        memberURL: "Susanne_Leone",
 	        imageURL: "Susanne_Leone.jpg"
 	        };
         $scope.profile7 = {
 	        memberName: "Evgeny V. Golovanov",
 	        memberTitle: "Jurist",
+	        memberLocation: "Russia",
 	        memberURL: "Evgeny_Golovanov",
 	        imageURL: "Evgeny_Golovanov.jpg"
 	        };
         $scope.profile8 = {
 	        memberName: "Jasmin Welker",
 	        memberTitle: "Jurist",
+	        memberLocation: "Germany",
 	        memberURL: "Jasmin_Welker",
 	        imageURL: "Jasmin_Welker.png"
 	        };
-
+        // TEAM INTERNATIONAL
         $scope.profile9 = {
 	        memberName: "Jacques Ethier",
 	        memberTitle: "Canada",
+	        memberLocation: "Canada",
 	        memberURL: "Jacques_Ethier",
 	        imageURL: "Jacques_Ethier.jpg"
 	        };
         $scope.profile10 = {
 	        memberName: "Eric J.P. Citrey",
 	        memberTitle: "France",
+	        memberLocation: "France",
 	        memberURL: "Eric_Citrey",
 	        imageURL: "Eric_Citrey.jpg"
 	        };
         $scope.profile11 = {
 	        memberName: "Oliver Hance",
 	        memberTitle: "Belgium and Luxemburg",
+	        memberLocation: "Belgium and Luxemburg",
 	        memberURL: "Oliver_Hance",
 	        imageURL: "Oliver_Hance.jpg"
 	        };
         $scope.profile12 = {
 	        memberName: "Aleksandr Smirnov",
 	        memberTitle: "Russia",
+	        memberLocation: "Russia",
 	        memberURL: "Aleksandr_Smirnov",
 	        imageURL: "Aleksandr_Smirnov.jpg"
 	        };
         $scope.profile13 = {
 	        memberName: "Vladimir A. Troitskiy",
 	        memberTitle: "Russia",
+	        memberLocation: "Russia",
 	        memberURL: "Vladimir_Troitskiy",
 	        imageURL: "Vladimir_Troitskiy.jpg"
 	        };
         $scope.profile14 = {
 	        memberName: "Carlos Aud Sobrinho",
 	        memberTitle: "Brazil",
+	        memberLocation: "Brazil",
 	        memberURL: "Carlos_Aud_Sobrinho",
 	        imageURL: "Carlos_Aud_Sobrinho.jpg"
 	        };
         $scope.profile15 = {
 	        memberName: "Eric Vigneron",
 	        memberTitle: "Dominican Republic",
+	        memberLocation: "Dominican Republic",
 	        memberURL: "Eric_Vigneron",
 	        imageURL: "Eric_Vigneron.png"
 	        };
@@ -308,12 +326,88 @@ $(window).on('scroll', function(){
 		$('.navbar.noscrollActive').addClass('noscroll');
 	}
 });
+$(window).load(function(){
+	$('#mapUS').css({'height' : '250px'});
+	$('#mapFR').css({'height' : '250px'});
 
-$('.dropdown-toggle').click(function() {
-    var location = $(this).attr('href');
-    window.location.href = location;
-    return false;
+  	var usa = {lat: 25.772439, lng: -80.191349};
+  	var france = {lat: 48.874967, lng: 2.320793};
+
+	var mapusa = new google.maps.Map(document.getElementById('mapUS'), {
+        zoom: 13,
+        scrollwheel: false,
+        center: usa,
+        resize: true
+	    }
+	);
+	var mapfrance = new google.maps.Map(document.getElementById('mapFR'), {
+	  zoom: 13,
+	  scrollwheel: false,
+	  center: france
+	});
+
+	var markerusa = new google.maps.Marker({
+	  position: mapusa,
+	  map: mapUS
+	});
+	var markerfrance = new google.maps.Marker({
+	  position: mapfrance,
+	  map: mapFR
+	});
 });
 
-
+// $(window).load(function(){
+// 	if ('localStorage' in window && window['localStorage'] !== null) {
+// 		if (localStorage.fontSizeSet) {
+// 			document.body.classList.add('font-size-' + localStorage.fontSizeSet);
+// 			document.getElementById('fontSizeSelector').value = localStorage.fontSizeSet;
+// 		}
+// 		else {
+// 			document.body.classList.add('font-size-1');
+// 			document.getElementById('fontSizeSelector').value = '1';
+// 		}
+// 	}
+// });
+//
+// // font size tool local storage
+// $('#fontSizeSelector').change(function(){
+// 	if ('localStorage' in window && window['localStorage'] !== null) {
+// 		try {
+// 			var fontSize = document.getElementById('fontSizeSelector').value;
+// 			// The setItem(‘key’,’value’) allows us to write the data into the local storage.
+// 			localStorage.setItem('fontSizeSet', fontSize);
+// 			document.body.classList.remove('font-size-1', 'font-size-2', 'font-size-3');
+// 			document.body.classList.add('font-size-' + fontSize);
+// 		}
+// 		catch (e) {
+// 			if (e == QUOTA_EXCEEDED_ERR) {
+// 				alert('Quota exceeded!');
+// 			}
+// 		}
+// 	} else {
+// 		alert('Error: Cannot set font size as your browser do not support local storage');
+// 	}
+// });
+// $('label.font-size .default').click(function() {
+// 	$("#fontSizeSelector").val(1);
+// 	$("#fontSizeSelector").trigger('change');
+// });
+// $('label.font-size .larger').click(function() {
+// 	$("#fontSizeSelector").val(2);
+// 	$("#fontSizeSelector").trigger('change');
+// });
+// $('label.font-size .largest').click(function() {
+// 	$("#fontSizeSelector").val(3);
+// 	$("#fontSizeSelector").trigger('change');
+// });
+//
+//
+// // non working
+// $('.dropdown-toggle').click(function() {
+//     alert ('hi');
+//     var location = $(this).attr('href');
+//     window.location.href = location;
+//     return false;
+// });
+//
 
