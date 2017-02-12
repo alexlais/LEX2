@@ -7,7 +7,7 @@ var app =
     angular.module('WebApp', ['ngRoute', 'ngAnimate']);
 
     // Configure the Routes
-    app.config(['$routeProvider', function ($routeProvider) {
+    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
         // Pages
         .when("/", {
@@ -48,12 +48,17 @@ var app =
         })
         .when("/contact", {
         templateUrl: "partials/contact.html",
-        controller: "profileInfoCtrl"
+        controller: "contactCtrl"
         })
         .when("/test", {
         templateUrl: "partials/test.html",
         controller: "profileInfoCtrl"
         })
+//         .when("/our_team/:id", {
+//         title : 'Joseph McFarland - Our Team',
+//         templateUrl: "partials/our_team/Lucius_Smejda.html",
+//         controller: "profileInfoCtrl"
+//         })
         .when("/our_team/test", {
         templateUrl: "partials/our_team/test.html",
         controller: "profileInfoCtrl"
@@ -161,17 +166,45 @@ var app =
 			$rootScope.canonical = current.$$route.canonical;
 			$rootScope.robots = current.$$route.robots;
 			window.scrollTo(0, 0);
-			// angular.element(document.getElementsByTagName('head')).append(angular.element('<base href="' + window.location.pathname + '" />'));
-            // alert (window.location.pathname);
-
+            var mapUSDiv=document.getElementById("mapUS");
+            var mapFRDiv=document.getElementById('mapFR');
+            $rootScope.map = plugin.google.maps.Map.getMap(mapUSDiv);
 		});
 	}]);
 
     app.controller('contactCtrl', ['$scope', function($scope) {
+        google.maps.event.trigger(mapUS, 'resize');
+
+        	$('#mapUS').css({'height' : '250px'});
+        	$('#mapFR').css({'height' : '250px'});
+
+          	var coordinatesUS = {lat: 25.772439, lng: -80.191349};
+          	var coordinatesFR = {lat: 48.874967, lng: 2.320793};
+
+        	mapUS = new google.maps.Map(document.getElementById('mapUS'), {
+        	  zoom: 15,
+        	  scrollwheel: false,
+        	  center: coordinatesUS
+        	});
+        	var marker = new google.maps.Marker({
+        	  position: coordinatesUS,
+        	  map: mapUS
+        	});
+
+        	mapFR = new google.maps.Map(document.getElementById('mapFR'), {
+        	  zoom: 13,
+        	  scrollwheel: false,
+        	  center: coordinatesFR
+        	});
+        	var markerfrance = new google.maps.Marker({
+        	  position: coordinatesFR,
+        	  map: mapFR
+         	});
+
     }]);
 
 
-    app.controller('profileInfoCtrl', ['$scope', function($scope, $location, $anchorScroll) {
+    app.controller('profileInfoCtrl', ['$scope', '$location', function($scope, $location, $anchorScroll) {
         // TEAM USA
         $scope.profile1 = {
             memberName: "Lucius Smejda",
@@ -325,35 +358,6 @@ $(window).on('scroll', function(){
 	} else {
 		$('.navbar.noscrollActive').addClass('noscroll');
 	}
-});
-$(window).load(function(){
-	$('#mapUS').css({'height' : '250px'});
-	$('#mapFR').css({'height' : '250px'});
-
-  	var usa = {lat: 25.772439, lng: -80.191349};
-  	var france = {lat: 48.874967, lng: 2.320793};
-
-	var mapusa = new google.maps.Map(document.getElementById('mapUS'), {
-        zoom: 13,
-        scrollwheel: false,
-        center: usa,
-        resize: true
-	    }
-	);
-	var mapfrance = new google.maps.Map(document.getElementById('mapFR'), {
-	  zoom: 13,
-	  scrollwheel: false,
-	  center: france
-	});
-
-	var markerusa = new google.maps.Marker({
-	  position: mapusa,
-	  map: mapUS
-	});
-	var markerfrance = new google.maps.Marker({
-	  position: mapfrance,
-	  map: mapFR
-	});
 });
 
 // $(window).load(function(){

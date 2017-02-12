@@ -33,20 +33,23 @@ dark yellow (bullet and subheading)
 
 html, body {
     height: 100%;
-    -webkit-text-size-adjust: inherit;
 }
 body {
     /*
     padding-top: 50px;
     font-smooth: never;
     */
-    color: #444;
+    color: #666;
     background: White;
 }
 
+
+
+
+
 /* --- _STRUCTURE PADDING ------------------------- */
 
-/* --- ROW padding --- */
+/* --- ROW VERTICAL gutter --- */
 .row {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -55,7 +58,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
 }
-/* --- COLUMN padding --- */
+/* --- COLUMN VERTICAL gutter --- */
 .row > div {
     padding-top: 2rem;
     padding-bottom: 2rem;
@@ -64,52 +67,53 @@ body {
     padding-top: 0;
     padding-bottom: 0;
 }
+/*
+.col-padding > div {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+*/
+/* --- COLUMN NO HORIZONTAL padding for streched images and fot the maps --- */
+div[class*='col-'].col-no-padding {
+    padding-left: 1px;
+    padding-right: 1px;
+}
+/* --- COLUMN NO VERTICAL GUTTER for tight content --- */
+.col-no-gutter[class*='col-'] {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
 /* --- CANCEL padding --- */
 .clearfix {
     padding: 0 !important;
     margin: 0 !important;
 }
-
-/* --- CANCEL padding --- */
-
 footer .row, footer .row div {
     margin-top: 0;
     margin-bottom: 0;
 }
-/* xxx
-.highlight .row > div {
-    margin-top: 0;
-}
 
-*/
 /*
-div[class*='col-'] {
-    padding-top: 1.3em;
-}
-div[class*='col-'] div[class*='col-'] {
-    padding-top: 0;
-}
-.row {
-    margin-top: 1.3em;
-    margin-bottom: 1.3em;
-}
-.row .row {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
+    .nogutter > .container > .row, .nogutter > .container > .row > div {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 */
-
 
 .border-top {
     border-top: 1px solid rgba(0,0,0,0.1);
-    margin-top: 5rem;
+    margin-top: 3rem;
     padding-top: 2rem;
 }
 .border-bottom {
     border-bottom: 1px solid rgba(0,0,0,0.1);
-    margin-bottom: 1em;
-    padding-bottom: 1.3em;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
 }
 
 /* --- --- --- */
@@ -173,14 +177,30 @@ nav a, .dropdown-menu > li > a {
 /*-- _HEADINGS and COPY -------------------------------------------- */
 
 h1, h2, h3 {
-	color: #00b32d;
 	color: #009999;
     font-weight: 200;
-    margin: 0 0 0.5em;
+    margin: 0 0 2rem;
     line-height: 1.3;
+}
+.focus h2 {
+    margin-bottom: 2.5rem;
 }
 .caption {
     margin: 0 0 1em;
+}
+.highlight h2 {
+	color: #00b3b3;
+}
+/*
+.highlight h3 {
+	color: #cfec79;
+}
+*/
+h3 {
+    color: #99cc00;
+}
+.ourteam h3, .contactus h3 {
+    color: #ff8000;
 }
 .profile-header h1 span {
     display: block;
@@ -189,26 +209,11 @@ h1, h2, h3 {
     text-transform: uppercase;
     text-shadow: 2px 2px white;
 }
-h3 {
-    color: #ff8000;
-    color: #00b32d;
-}
 .profile-list h3 span {
     display: block;
     font-size: 0.7em;
     color: #999;
     padding:3px;
-}
-.highlight h2 {
-	color: #00b3b3;
-}
-.highlight h3 {
-	color: #d5f76e;
-	color: #cfec79;
-}
-.ourteam h3 {
-    color: #99cc00;
-    color: rgba(255, 128, 0, 0.9);
 }
 h4, h6 {
     margin-top: 0;
@@ -216,8 +221,13 @@ h4, h6 {
 }
 p {
     line-height: 1.5;
+    text-rendering: geometricPrecision;
 }
 c {
+    white-space: nowrap;
+}
+cc, .telephone p.large, p.long {
+    word-break: keep-all;
     white-space: nowrap;
 }
 .chevron {
@@ -663,16 +673,6 @@ c {
         padding-bottom: 5rem;
         margin-top: 0;
     }
-    .gutter {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    .nogutter > .container > .row, .nogutter > .container > .row > div {
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
     section.thefirm, section.practiceareas, section.profile-list, section > .ourteam {
         padding-bottom: 5rem;
     }
@@ -780,10 +780,7 @@ c {
         background: #fff;
     }
     .telephone p.large {
-        color: #009999;
-        word-break: keep-all;
-        white-space: nowrap;
-        margin: 0.4em 0;
+        color: #009999;        margin: 0.4em 0;
     }
 
     /* --- FONT SIZES --- ------- MEDIUM or larger --- */
@@ -796,10 +793,11 @@ c {
     	font-size: 55px;
     }
     h2.smaller, .telephone p.large {
-        font-size: 40px;
+        font-size: 37px;
     }
-    p.smaller {
-        font-size: 0.85em;
+    p.smaller, address p, span.smaller, .smaller p, span.location, .form-group label {
+        font-size: 0.86em;
+        margin-bottom: 0;
     }
     .headline .caption.blue {
         color: #00cccc;
@@ -814,23 +812,20 @@ c {
     	font-size: 20px;
     }
 
-    .image + h2, .image + div h2, .image + h3, .image + div h3 {
-        padding-top: 0.65em;
+    .image + h2, .image + div h2, .image + h3, .image + div h3, .col-no-padding + div h2 {
+        padding-top: 1.5rem;
     }
     /* --- --- --- */
     footer, footer h6 {
         font-size: 14px;
     }
-    .telephone p.hours {
-        font-size: 16px;
-    }
+
     .smaller-text, .ourteam .description  {
         font-size: 17px;
         margin-bottom: 7px;
         line-height: 1.2;
     }
     span.location {
-        font-size: 0.85em;
         margin: -10px 0 0 10px;
         color: #aaa;
     }
@@ -897,6 +892,9 @@ c {
     section.practiceareas, section.linksevents, section.contactus {
         margin-bottom: 2em;
     }
+    .contactus, .profile-list {
+        margin-top: 3rem;
+    }
     /* --- _HOME ------------------ MEDIUM or larger --- */
     /* --- _PRACTICEAREAS --------- MEDIUM or larger --- */
     .practiceareas img {
@@ -915,14 +913,13 @@ c {
     .profile-list .row > div:nth-child(3n+5) {
         clear: left;
     }
-
     .profile-list h3 a {
         color: #666;
         border-top: 1px solid #aaa;
         padding-bottom: 0;
         line-height: 1;
     }
-    .profile-list h3 a:hover {
+    .profile-list h3 a:hover, .profile-list a.image:hover ~ h3 a {
         color: #009999;
         border-top: 1px solid #009999;
     }
@@ -939,14 +936,11 @@ c {
         box-shadow: inset 0 -100px 100px 10px rgba(255,255,255,0.4);
 
     }
-    .profile-header a.back-link:before {
-	    margin-left: 15px;
-	}
     .profile-header h1 {
     	padding-top: 35px;
         font-weight: 200;
     	line-height: 1;
-    	margin: 5px 0 0 15px;
+    	margin: 5px 0 0 0;
         border-top: 1px solid #ccc;
     }
     .profile-header h1 span {
@@ -956,13 +950,15 @@ c {
         box-shadow: 0 -100px 200px 30px rgba(255,255,255,0.6);
     }
     .ourteam .content {
-        margin-top: 2em;
-        padding-top: 2em;
+        margin-top: 3rem;
+        padding-top: 2rem;
         border-top: 1px solid rgba(0, 0, 0, 0.15);
     }
     .ourteam .col-sm-4 .content {
         margin-right: 15px;
         padding-left: 0;
+    }
+    .ourteam .col-sm-8 .content {
     }
     .ourteam .content:first-child {
         margin-top: 0;
@@ -977,15 +973,13 @@ c {
         padding-bottom: 2em;
     }
     /* --- _CONTACTUS ------------ MEDIUM or larger --- */
-    .contactus {
-        padding-top: 2em;
-    }
+
     #mapUS, #mapFR {
         height: 150px;
     }
     section.contactus .field-name {
         text-align: right;
-        min-width: 55px;
+        min-width: 50px;
         display: inline-block;
         font-size: 16px;
         font-weight: bold;
@@ -995,8 +989,6 @@ c {
     }
     section.contactus .content p.long {
         font-size: 15px;
-        word-break: keep-all;
-        white-space: nowrap;
     }
     section.contactus .content p.long span {
         font-size: 16px;
@@ -1005,13 +997,11 @@ c {
         padding-bottom: 1rem;
         padding-top: 1rem;
     }
+    address {
+        margin: 0;
+    }
     .form-group label {
         font-weight: normal;
-        margin: 0;
-        font-size: 16px
-    }
-    .col-form {
-        padding-top: 0 !important;
     }
     form {
         padding-left: 15px;
@@ -1103,8 +1093,6 @@ c {
     }
     .subnav a {
         padding: 0 6px;
-        word-break: keep-all;
-        white-space: nowrap;
         border: 2px solid white;
         border-radius: 5px;
         line-height: 1.5;
@@ -1246,6 +1234,9 @@ c {
     .container {
         width: auto;
     }
+    h2, h2.smaller {
+        font-size: 35px;
+    }
     .profile-list h3 {
         font-size: 24px
     }
@@ -1314,19 +1305,10 @@ c {
                 .cta a {
                     font-size: 22px;
                 }
-
                 footer, footer h6 {
                     font-size: 15px;
                 }
-                section.contactus h2 {
-                    margin-bottom: 4rem;
-                }
-                section.contactus h2.smaller {
-                    margin-bottom: 0;
-                }
-                section.contactus address {
-                    font-size: 19px;
-                }
+
                  /* --- _OURTEAM HOME ------------- MEDIUM or larger --- */
                 .profile-list img {
                     width: 125px;
@@ -1343,9 +1325,6 @@ c {
                 /* add new clear for each 4 items (4n) starting from the sixth (the team heading is counted also!) */
                 .profile-list .row > div:nth-child(4n+6) {
                     clear: left;
-                }
-                section.contactus address {
-                    font-size: 20px;
                 }
             }
 
