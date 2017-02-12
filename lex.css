@@ -47,74 +47,6 @@ body {
 
 
 
-/* --- _STRUCTURE PADDING ------------------------- */
-
-/* --- ROW VERTICAL gutter --- */
-.row {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-.row .row, .row.row-no-gutter {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-/* --- COLUMN VERTICAL gutter --- */
-.row > div {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-.row .row > div {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-/*
-.col-padding > div {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-*/
-/* --- COLUMN NO HORIZONTAL padding for streched images and fot the maps --- */
-div[class*='col-'].col-no-padding {
-    padding-left: 1px;
-    padding-right: 1px;
-}
-/* --- COLUMN NO VERTICAL GUTTER for tight content --- */
-.col-no-gutter[class*='col-'] {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 0;
-    padding-top: 0;
-}
-
-/* --- CANCEL padding --- */
-.clearfix {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-footer .row, footer .row div {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-/*
-    .nogutter > .container > .row, .nogutter > .container > .row > div {
-        padding-top: 0;
-        padding-bottom: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-*/
-
-.border-top {
-    border-top: 1px solid rgba(0,0,0,0.1);
-    margin-top: 4rem;
-    padding-top: 2rem;
-}
-.border-bottom {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-}
 
 /* --- --- --- */
 .breadcrumb {
@@ -300,11 +232,7 @@ cc, .telephone p.large, p.long {
     background: #009999;
     color: White;
     text-shadow: none;
-    padding-bottom: 6px;
     border-bottom: 2px solid white;
-}
-.navbar-brand {
-    margin-left: -15px;
 }
 
 /*-- _BANNER ----------------------------------- */
@@ -474,7 +402,8 @@ span.link:hover {
                                                 display: none;
                                                 margin: 0;
                                                 padding: 0;
-                                             }                                           /* --- MOBILE and TABLETS --- */
+                                             }
+                                          /* --- MOBILE and TABLETS --- */
                                             body {
                                                 font-size: 15px;
                                                 padding-top: 50px;
@@ -492,15 +421,9 @@ span.link:hover {
                                             .list-inline > li {
                                                 padding: 0;
                                             }
-
-                                            .banner.home {
-                                                background: #000;
-                                                padding: 1em 0;
-                                            }
-
                                             .row, .row.focus {
                                                 margin-top: 0;
-                                                marign-bottom: 0;
+                                                margin-bottom: 0;
                                             }
                                             div[class*='col-'] .image.mobile img, section div[class*='col-'] img.mobile {
                                                 display: inline;
@@ -526,7 +449,8 @@ span.link:hover {
                                             .navbar {
                                                 background: white;
                                                 border: none;
-                                                        box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
+                                                box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
+                                                text-transform: uppercase;
 
                                             }
                                             .navbar .navbar-toggle {
@@ -616,7 +540,16 @@ span.link:hover {
                                             .banner {
                                                 background: black;
                                                 margin: 0;
-                                                padding: 100px 0 1em;
+                                                padding-top: 50px;
+                                                padding-bottom: 30px;
+                                                background-size: 100% !important;
+                                                background-position: center !important;
+                                                background-attachment: scroll !important;
+                                            }
+                                            .banner.home {
+                                                background: #000;
+                                                padding-top: 50px;
+                                                padding-bottom: 30px;
                                             }
 
 
@@ -624,13 +557,46 @@ span.link:hover {
                                             .practiceareas .text-center {
                                                 text-align: left;
                                             }
+                                            .practiceareas > .container {
+                                                margin-bottom: 4rem;
+                                            }
+                                            .ourteam .content {
+                                                padding-top: 2rem;
+                                                    margin-top: 3rem;
+                                            }
+                                            .ourteam  .col-sm-8 .content:first-child {
+                                                    margin-top: 0;
+                                            }
                                             .text-center {
                                                 text-align: inherit;
                                             }
                                             .profile-list, .profile-list .text-center {
                                                 text-align: center;
                                             }
+                                            .focus {
+                                                margin-top: 2rem;
+                                            }
+                                            .contactus .focus .border-bottom, form {
+                                                margin-bottom: 2rem;
+                                                padding-bottom: 2rem;
+                                                border-bottom: 1px solid rgba(0,0,0,0.1);
+                                            }
 
+                                            .btn-primary {
+                                                font-size: 18px;
+                                                padding: 5px 30px;
+                                                border-radius: 3px;
+                                                color: white;
+                                                background: #009999;
+                                                border: 0;
+                                                margin-top: 20px;
+                                            }
+                                            .highlight {
+                                                margin-top: 3rem;
+                                            }
+                                            .highlight h2 {
+                                                margin-bottom: 0;
+                                            }
                                             /* --- MOBILE and TABLETS --- */
                                             .focus {
                                                 background: rgba(45, 57, 57, 0.05);
@@ -665,7 +631,19 @@ span.link:hover {
                                                 font-size: 14px;
                                             }
 
-
+                                            /* --- COLUMN VERTICAL gutter --- */
+                                            .row > div {
+                                                padding-top: 2rem;
+                                            }
+                                            .row .row > div {
+                                                padding-top: 0;
+                                                padding-bottom: 0;
+                                            }
+                                            /* --- CANCEL padding --- */
+                                            .clearfix {
+                                                padding: 0 !important;
+                                                margin: 0 !important;
+                                            }
                                         }
 
 
@@ -698,6 +676,76 @@ span.link:hover {
 @media only screen and (min-width: 769px) {
 
 
+    /* --- _STRUCTURE PADDING ------------------------- */
+
+    /* --- ROW VERTICAL gutter --- */
+    .row {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .row .row, .row.row-no-gutter {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    /* --- COLUMN VERTICAL gutter --- */
+    .row > div {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .row .row > div {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    /*
+    .col-padding > div {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    */
+    /* --- COLUMN NO HORIZONTAL padding for streched images and fot the maps --- */
+    div[class*='col-'].col-no-padding {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+    /* --- COLUMN NO VERTICAL GUTTER for tight content --- */
+    .col-no-gutter[class*='col-'] {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+
+    /* --- CANCEL padding --- */
+    .clearfix {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    footer .row, footer .row div {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    /*
+        .nogutter > .container > .row, .nogutter > .container > .row > div {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    */
+
+    .border-top {
+        border-top: 1px solid rgba(0,0,0,0.1);
+        margin-top: 4rem;
+        padding-top: 2rem;
+    }
+    .border-bottom {
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        margin-bottom: 3rem;
+        padding-bottom: 3rem;
+    }
+
+
     /* --- _FONT-SIZES ------------ MEDIUM or larger --- */
     body {
         font-size: 18px;
@@ -714,7 +762,8 @@ span.link:hover {
     .navbar {
         font-weight: bold;
     }
-    .navbar .navbar-brand {
+    .navbar-brand {
+        margin-left: -15px;
     }
     /* --- --- --- */
     .banner p {
