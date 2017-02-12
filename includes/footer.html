@@ -116,7 +116,28 @@
 
 		    <div class="col-sm-12 text-center copyright">
                 <p>Copyright &copy; 2009-2017 <c>LEX International Law Firm.</c> <c>All Rights Reserved.</c>
-                <c><a href="#">Disclaimer &amp; Credits</a></c></p>
+                <div ng-app="ngAnimate">
+					<div class="disclaimer text-left" ng-class="myVar">
+    					<div class="header" ng-click="myVar=''">
+		    				<h3>Legal Disclaimer and Credits <span>x</span></h3>
+		    			</div>
+		    			<div class="credits-content">
+							<h4>Credits</h4>
+							<p><a href="http://www.alexlais.com">Webdesign by&hellip;</a></p>
+							<p><a href="http://www.pixabay.com">Free stock images by&hellip;</a></p>
+						</div>
+		    			<div class="disclaimer-content">
+							<h4>Legal Disclaimer</h4>
+							<div>
+								<p>The information you obtain at our site is neither legal advice nor solicitation. While we would like to hear from you, please bear in mind that merely contacting Lex International Law Firm will not establish a lawyer-client relationship.</p>
+								<p>You should not send any confidential information to us until a formal retainer agreement has been executed and after an appropriate lawyer-client relationship has been established.</p>
+								<p>The hiring of a lawyer is an important decision that should not be based solely on advertisements nor on websites.</p>
+								<p>For all confidential communications, we recommend using oral, fax or letter discussions, not e-mail, which is not protected by legal confidentiality rules.</p>
+							</div>
+						</div>
+					</div>
+					<c><span class="link" ng-click="myVar='open'">Disclaimer &amp; Credits</span></c>
+		        </div>
 			</div>
 		</div>
     </div>

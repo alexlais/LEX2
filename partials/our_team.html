@@ -5,7 +5,7 @@
 <header class="banner banner-ourteam">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
         		<h1>Our Team</h1>
             </div>
         </div>
@@ -17,9 +17,9 @@
     <li class="active">Our Team</li>
 </ol>
 
-<section ng-controller="profileInfoCtrl">
+<section ng-controller="profileInfoCtrl" class="ourteam">
     <!-- ng-repeat Directive | nestling -->
-	<div class="container profile-list">
+	<div class="container profile-list border-bottom">
 		<div class="row">
 		    <div class="col-sm-12 text-center">
 		    	<h2>Our USA Team</h2>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
     </div>
-	<div class="container profile-list border-top">
+	<div class="container profile-list border-bottom">
 		<div class="row">
 		    <div class="col-sm-12 text-center">
 		    	<h2>Our International Team</h2>
@@ -78,4 +78,5 @@
 			</div>
 		</div>
     </div>
+    <ng-include src="'includes/promocall.html'"></ng-include>
 </section>
