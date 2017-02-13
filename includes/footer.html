@@ -118,10 +118,10 @@
                 <p>Copyright &copy; 2009-2017 <c>LEX International Law Firm.</c> <c>All Rights Reserved.</c>
                 <div ng-app="ngAnimate">
 					<div class="disclaimer text-left" ng-class="myVar">
-    					<div class="header" ng-click="myVar=''">
+    					<div class="header hidden-xs" ng-click="myVar=''">
 		    				<h3>Disclaimer and Credits <span>x</span></h3>
 		    			</div>
-		    			<div class="credits-content">
+		    			<div class="credits-content hidden-xs">
 							<h4>Credits</h4>
 							<p><a href="http://www.alexlais.com">Webdesign by&hellip;</a></p>
 							<p><a href="http://www.pixabay.com">Free stock images by&hellip;</a></p>
@@ -135,8 +135,13 @@
 								<p>For all confidential communications, we recommend using oral, fax or letter discussions, not e-mail, which is not protected by legal confidentiality rules.</p>
 							</div>
 						</div>
+		    			<div class="credits-content visible-xs-block">
+							<h4>Credits</h4>
+							<p><a href="http://www.alexlais.com">Webdesign by&hellip;</a></p>
+							<p><a href="http://www.pixabay.com">Free stock images by&hellip;</a></p>
+						</div>
 					</div>
-					<c><span class="link" ng-click="myVar='open'">Disclaimer &amp; Credits</span></c>
+					<c class="hidden-xs"><span class="link" ng-click="myVar='open'">Disclaimer &amp; Credits</span></c>
 		        </div>
 			</div>
 		</div>
