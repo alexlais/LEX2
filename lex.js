@@ -6,22 +6,6 @@
 var app =
     angular.module('WebApp', ['ngRoute', 'ngAnimate'])
 
-    .controller('MainController', function($scope, $route, $routeParams, $location, $anchorScroll) {
-//         $scope.$route = $route;
-//         $scope.$location = $location;
-//         $scope.$routeParams = $routeParams;
-
-	    $scope.modalShown = false;
-        $scope.toggleModal = function() {
-            $scope.modalShown = !$scope.modalShown;
-        };
-        $scope.scrollTo = function (scrollLocation) {
-            $location.hash(scrollLocation);
-            $anchorScroll.yOffset = 20;
-            $anchorScroll();
-        }
-    })
-
     // Configure the Routes
     .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider
@@ -82,87 +66,7 @@ var app =
         templateUrl: "partials/not_found.html",
         controller: "profileInfoCtrl"
         })
-        .when("/contact", {
-        templateUrl: "partials/contact.html",
-        controller: "contactCtrl"
-        })
-//         .when("/our_team/Lucius_Smejda", {
-//         title : 'Joseph McFarland - Our Team',
-//         templateUrl: "partials/our_team/Lucius_Smejda.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Joseph_McFarland", {
-//         title : 'Joseph McFarland - Our Team',
-//         templateUrl: "partials/our_team/Joseph_McFarland.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Antonio_Zamora", {
-//         title : 'Antonio Zamora - Our Team',
-//         templateUrl: "partials/our_team/Antonio_Zamora.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Elke_Rolff", {
-//         title : 'Elke Rolff - Our Team',
-//         templateUrl: "partials/our_team/Elke_Rolff.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Maxim_Istomin", {
-//         title : 'Maxim Istomin - Our Team',
-//         templateUrl: "partials/our_team/Maxim_Istomin.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Susanne_Leone", {
-//         title : 'Susanne Leone - Our Team',
-//         templateUrl: "partials/our_team/Susanne_Leone.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Evgeny_Golovanov", {
-//         title : 'Evgeny Golovanov - Our Team',
-//         templateUrl: "partials/our_team/Evgeny_Golovanov.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Jasmin_Welker", {
-//         title : 'Jasmin Welker - Our Team',
-//         templateUrl: "partials/our_team/Jasmin_Welker.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Jacques_Ethier", {
-//         title : 'Jacques Ethier - Our Team',
-//         templateUrl: "partials/our_team/Jacques_Ethier.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Eric_Citrey", {
-//         title : 'Eric Citrey - Our Team',
-//         templateUrl: "partials/our_team/Eric_Citrey.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Oliver_Hance", {
-//         title : 'Oliver Hance - Our Team',
-//         templateUrl: "partials/our_team/Oliver_Hance.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Aleksandr_Smirnov", {
-//         title : 'Aleksandr Smirnov - Our Team',
-//         templateUrl: "partials/our_team/Aleksandr_Smirnov.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Vladimir_Troitskiy", {
-//         title : 'Vladimir Troitskiy - Our Team',
-//         templateUrl: "partials/our_team/Vladimir_Troitskiy.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Carlos_Aud_Sobrinho", {
-//         title : 'Carlos Aud Sobrinho - Our Team',
-//         templateUrl: "partials/our_team/Carlos_Aud_Sobrinho.html",
-//         controller: "profileInfoCtrl"
-//         })
-//         .when("/our_team/Eric_Vigneron", {
-//         title : 'Eric Vigneron - Our Team',
-//         templateUrl: "partials/our_team/Eric_Vigneron.html",
-//         controller: "profileInfoCtrl"
-//         })
 
-        // else 404
         .otherwise("/not_found", {redirectTo: "partials/not_found.html", controller: "PageCtrl"});
 
         // $locationProvider.html5Mode(true);
@@ -179,6 +83,23 @@ var app =
 			window.scrollTo(0, 0);
 		});
 	}])
+
+    .controller('MainController', function($scope, $route, $routeParams, $location, $anchorScroll) {
+//         $scope.$route = $route;
+//         $scope.$location = $location;
+//         $scope.$routeParams = $routeParams;
+
+// 	    $scope.modalShown = false;
+//         $scope.toggleModal = function() {
+//             $scope.modalShown = !$scope.modalShown;
+//         };
+//         $scope.scrollTo = function (scrollLocation) {
+//             $location.hash(scrollLocation);
+//             $anchorScroll.yOffset = 20;
+//             $anchorScroll();
+//         }
+
+    })
 
     .controller('contactCtrl', ['$scope', function($scope) {
 
@@ -345,6 +266,10 @@ var app =
 	        memberURL: "Eric_Vigneron",
 	        imageURL: "Eric_Vigneron.png"
 	    };
+	    $scope.isActive = function (viewLocation) {
+             var active = (viewLocation === $location.path());
+             return active;
+        };
     }])
     .directive('myCustomer', function() {
         return {

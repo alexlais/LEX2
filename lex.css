@@ -79,9 +79,11 @@ a, a:focus {
     color: #009999;
     text-decoration: none;
 }
-a:hover, .dropdown-menu > li > a:hover {
+a:hover, .dropdown-menu > li > a:hover, .navbar-nav > li.active > a {
     color: #00cccc;
     text-decoration: none;
+}
+.navbar-nav > li.active > a {
 }
 nav a, .dropdown-menu > li > a {
 }
@@ -120,6 +122,7 @@ h1, h2, h3 {
 }
 .focus h2 {
     margin-bottom: 2.5rem;
+    margin-top: .5rem;
 }
 .caption {
     margin: 0 0 1em;
@@ -160,7 +163,6 @@ h4, h6 {
 }
 p {
     line-height: 1.5;
-    text-rendering: geometricPrecision;
 }
 c {
     white-space: nowrap;
@@ -228,7 +230,7 @@ cc, .telephone p.large, p.long {
     color: White;
     text-shadow: none;
 }
-.navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover {
+.navbar.noscroll .navbar-brand:hover, .navbar.noscroll .navbar-right > li > a:last-child:hover, .navbar.noscroll .navbar-right > li.active > a {
     background: #009999;
     color: White;
     text-shadow: none;
@@ -386,6 +388,10 @@ span.link:hover {
                                             .image.mobile {
                                                 padding-bottom: 20px;
                                                 border: 0;
+                                            }
+                                            ul.chevron li {
+                                                background-size: 10px 10px;
+                                                padding-left: 15px;
                                             }
                                             .profile-list a.image.mobile + h3 {
                                                 padding-top: 10px;
@@ -869,7 +875,7 @@ span.link:hover {
         left: 0;
         width: 100%;
         height: 100%;
-        opacity: .075;
+        opacity: .25;
         z-index: -1;
     }
     .practiceareas section.promocall, .ourteam section.promocall {
@@ -955,12 +961,15 @@ span.link:hover {
         background: rgba(45, 57, 57, 0.05);
         padding-bottom: 1.3em;
     }
+    .focus.double {
+        background: rgba(45, 57, 57, 0.15);
+    }
     /* --- --- --- */
 
 
     /* --- --- --- */
-    .image-expand {
-        margin: 0 -14.5px;
+    .highlight .image-expand {
+        margin: 0 -15px;
     }
     /* --- --- --- */
     .image-shadow {
@@ -1187,7 +1196,7 @@ span.link:hover {
     .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li > a:focus, .noscroll .dropdown-menu > li > a:hover, .noscroll .dropdown-menu > li:hover a {
         color: white;
     }
-    .navbar.noscroll .navbar-nav > li > a:hover, .noscroll .dropdown:hover > a {
+    .navbar.noscroll .navbar-nav > li > a:hover, .navbar.noscroll .navbar-nav > li.active > a, .noscroll .dropdown:hover > a {
         border-bottom: 2px solid white;
         padding-bottom: 7px;
     }
@@ -1218,7 +1227,7 @@ span.link:hover {
     /* --- _FOOTER ------------------- MEDIUM or larger --- */
     footer {
         color: #888;
-        background: #f8f8f8;
+        background: #fff;
         box-shadow: 0 0 30px -4px rgba(0,0,0,.2);
     }
     footer p {
@@ -1282,7 +1291,6 @@ span.link:hover {
         padding-top: 1em;
         padding-bottom: 6em;
         font-size: 12px;
-        text-align: center;
         color: #999;
         background: #fafafa;
         /* box-shadow: 0 -20px 20px -20px rgba(0,0,0,0.2); */
@@ -1309,14 +1317,16 @@ span.link:hover {
         margin: auto;
         background: white;
         background: #f8f8f8;
-        box-shadow:  0 0 0 2000px rgba(0,0,0,0.5);
+        box-shadow:  0 0 0 2000px rgba(0,0,0,0.4);
         border-radius: 8px 8px 6px 6px;
     }
     .disclaimer .header {
-        background: #009999;
-        padding: 5px 2%;
+        background: #555;
+        padding: 0 2%;
         cursor: pointer;
         border-radius: 6px 6px 0 0;
+        border: 1px solid #666;
+        border-bottom: 0;
     }
     .disclaimer-content {
         overflow: auto;
@@ -1334,9 +1344,12 @@ span.link:hover {
         margin-bottom: 10px;
     }
     .disclaimer h3 {
-        margin: 0.5em 0;
+        padding: 0.75em 0;
+        margin: 0;
         color: white;
-        font-size: 20px;
+        font-size: 18px;
+        text-transform: uppercase;
+        font-weight: bold;
     }
     .disclaimer h3 span {
         float: right;
